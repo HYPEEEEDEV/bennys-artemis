@@ -424,7 +424,302 @@
             color: #e74c3c;
             font-weight: 700;
         }
+
+        /* ===== LAMPEGGIO CLICK (solo su trigger) ===== */
+        @keyframes lampeggioClick {
+            0%   { border-color: #2b1515; box-shadow: none; background-color: rgba(20,20,20,0.75); }
+            15%  { border-color: #ff3333; box-shadow: 0 0 25px rgba(231, 76, 60, 0.8), 0 0 50px rgba(231, 76, 60, 0.4); background-color: rgba(0,40,25,0.9); }
+            30%  { border-color: #2b1515; box-shadow: none; background-color: rgba(20,20,20,0.75); }
+            50%  { border-color: #ff3333; box-shadow: 0 0 20px rgba(231, 76, 60, 0.6); background-color: rgba(0,35,20,0.85); }
+            70%  { border-color: #2b1515; box-shadow: none; background-color: rgba(20,20,20,0.75); }
+            85%  { border-color: #ff3333; box-shadow: 0 0 15px rgba(231, 76, 60, 0.5); background-color: rgba(0,30,18,0.8); }
+            100% { border-color: #2b1515; box-shadow: none; background-color: rgba(20,20,20,0.75); }
+        }
+        .lampeggio-click {
+            animation: lampeggioClick 3s ease-in-out !important;
+        }
+
+        /* ===== REGOLAMENTO CYBER ===== */
+        .regolamento-cyber {
+            position: relative;
+            background: linear-gradient(135deg, rgba(10,3,3,0.97) 0%, rgba(5,10,20,0.95) 50%, rgba(12,4,4,0.97) 100%);
+            border: 1px solid rgba(231,76,60,0.25);
+            border-radius: 4px;
+            padding: 30px 32px 28px 32px;
+            margin: 30px 0;
+            overflow: hidden;
+            box-shadow:
+                0 0 0 1px rgba(231,76,60,0.08),
+                inset 0 0 40px rgba(231,76,60,0.04),
+                0 8px 40px rgba(0,0,0,0.6);
+        }
+
+        /* Scanline effect */
+        .reg-cyber-scanline {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            pointer-events: none;
+            background: repeating-linear-gradient(
+                0deg,
+                transparent,
+                transparent 3px,
+                rgba(231,76,60,0.015) 3px,
+                rgba(231,76,60,0.015) 4px
+            );
+            z-index: 0;
+        }
+
+        /* Angoli cyber animati */
+        .reg-cyber-corner {
+            position: absolute;
+            width: 18px; height: 18px;
+            z-index: 2;
+        }
+        .reg-cyber-corner-tl { top: 0; left: 0; border-top: 2px solid #e74c3c; border-left: 2px solid #e74c3c; }
+        .reg-cyber-corner-tr { top: 0; right: 0; border-top: 2px solid #e74c3c; border-right: 2px solid #e74c3c; }
+        .reg-cyber-corner-bl { bottom: 0; left: 0; border-bottom: 2px solid #e74c3c; border-left: 2px solid #e74c3c; }
+        .reg-cyber-corner-br { bottom: 0; right: 0; border-bottom: 2px solid #e74c3c; border-right: 2px solid #e74c3c; }
+
+        /* Luce scorrevole sul bordo superiore */
+        .regolamento-cyber::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -30%;
+            width: 30%; height: 2px;
+            background: linear-gradient(90deg, transparent, #e74c3c, #ffffff, #e74c3c, transparent);
+            animation: cyberScan 3.5s ease-in-out infinite;
+            z-index: 3;
+        }
+        /* Bagliore angolo */
+        .regolamento-cyber::after {
+            content: '';
+            position: absolute;
+            top: -60px; right: -60px;
+            width: 180px; height: 180px;
+            background: radial-gradient(circle, rgba(231,76,60,0.08) 0%, transparent 70%);
+            animation: cyberGlow 4s ease-in-out infinite alternate;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        @keyframes cyberScan {
+            0%   { left: -30%; opacity: 0; }
+            5%   { opacity: 1; }
+            95%  { opacity: 1; }
+            100% { left: 120%; opacity: 0; }
+        }
+        @keyframes cyberGlow {
+            0%   { opacity: 0.5; transform: scale(1); }
+            100% { opacity: 1; transform: scale(1.4); }
+        }
+
+        .reg-cyber-inner { position: relative; z-index: 1; }
+
+        /* Titolo cyber */
+        .reg-cyber-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 0 0 14px 0;
+            font-family: 'Bebas Neue', cursive;
+            font-size: 20px;
+            letter-spacing: 4px;
+            color: #e74c3c;
+            text-shadow: 0 0 10px rgba(231,76,60,0.8), 0 0 25px rgba(231,76,60,0.4);
+            text-transform: uppercase;
+        }
+        .reg-cyber-icon {
+            font-size: 22px;
+            color: #e74c3c;
+            animation: iconSpin 8s linear infinite;
+            display: inline-block;
+            text-shadow: 0 0 12px rgba(231,76,60,1);
+        }
+        @keyframes iconSpin {
+            0%   { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .reg-cyber-blink {
+            color: #ff3333;
+            font-weight: 900;
+            font-size: 22px;
+            animation: blink 0.8s step-end infinite;
+            text-shadow: 0 0 10px rgba(231, 76, 60, 0.9);
+        }
+        @keyframes blink { 50% { opacity: 0; } }
+
+        /* Linea divisore cyber */
+        .reg-cyber-line {
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(231,76,60,0.6), rgba(231, 76, 60, 0.4), rgba(231,76,60,0.6), transparent);
+            margin-bottom: 16px;
+            box-shadow: 0 0 6px rgba(231,76,60,0.3);
+        }
+
+        /* Subtitolo */
+        .reg-cyber-sub {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 13px;
+            letter-spacing: 3px;
+            color: rgba(231,76,60,0.7);
+            text-transform: uppercase;
+            margin: 0 0 14px 0;
+        }
+
+        /* Lista */
+        .reg-cyber-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 20px 0;
+        }
+        .reg-cyber-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 10px 14px;
+            background: rgba(231,76,60,0.03);
+            border: 1px solid rgba(231,76,60,0.1);
+            border-left: 3px solid rgba(231,76,60,0.5);
+            border-radius: 2px;
+            margin-bottom: 8px;
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 14px;
+            color: rgba(200,230,255,0.85);
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            line-height: 1.5;
+        }
+        .reg-cyber-bullet {
+            color: #e74c3c;
+            font-size: 16px;
+            flex-shrink: 0;
+            margin-top: 1px;
+            text-shadow: 0 0 8px rgba(231,76,60,0.8);
+        }
+        .reg-cyber-keyword {
+            color: #e74c3c;
+            font-weight: 700;
+            text-shadow: 0 0 8px rgba(231,76,60,0.5);
+        }
+        .reg-cyber-hl {
+            color: #ff3333;
+            font-weight: 700;
+            text-shadow: 0 0 8px rgba(231, 76, 60, 0.6);
+        }
+
+        /* ===== BOTTONE CYBER VAI A COMPONENTI ===== */
+        .btn-cyber-vai {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 13px 24px;
+            background: linear-gradient(135deg, rgba(15,5,5,0.95), rgba(20,5,5,0.98));
+            border: 1px solid rgba(231,76,60,0.4);
+            border-radius: 3px;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.25s ease;
+            font-family: 'Bebas Neue', cursive;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            outline: none;
+            box-shadow: 0 0 15px rgba(231,76,60,0.15), inset 0 0 20px rgba(231,76,60,0.03);
+        }
+        /* Luce scorrevole interna */
+        .btn-cyber-vai::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 60%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(231,76,60,0.15), transparent);
+            animation: btnSweep 2.5s ease-in-out infinite;
+        }
+        @keyframes btnSweep {
+            0%   { left: -100%; }
+            100% { left: 160%; }
+        }
+        .btn-cyber-vai:hover {
+            border-color: rgba(231, 76, 60, 0.7);
+            box-shadow: 0 0 25px rgba(231,76,60,0.35), 0 0 50px rgba(231,76,60,0.15), inset 0 0 20px rgba(231,76,60,0.06);
+            transform: translateY(-2px);
+            background: linear-gradient(135deg, rgba(18,5,5,0.98), rgba(22,5,5,1));
+        }
+        .btn-cyber-vai:active { transform: translateY(1px); }
+
+        .btn-cyber-bracket {
+            color: rgba(231,76,60,0.5);
+            font-size: 22px;
+            font-weight: 400;
+        }
+        .btn-cyber-icon {
+            font-size: 20px;
+            color: #e74c3c;
+            animation: cogSpin 4s linear infinite;
+            display: inline-block;
+            text-shadow: 0 0 10px rgba(231,76,60,0.9);
+        }
+        @keyframes cogSpin { 100% { transform: rotate(360deg); } }
+        .btn-cyber-label {
+            font-size: 17px;
+            color: #e74c3c;
+            text-shadow: 0 0 8px rgba(231,76,60,0.7);
+            letter-spacing: 3px;
+        }
+        .btn-cyber-arrow {
+            color: #ff3333;
+            font-size: 14px;
+            letter-spacing: -2px;
+            text-shadow: 0 0 8px rgba(231, 76, 60, 0.8);
+            animation: arrowPulse 1.2s ease-in-out infinite alternate;
+        }
+        @keyframes arrowPulse {
+            0%   { opacity: 0.5; transform: translateX(0); }
+            100% { opacity: 1; transform: translateX(4px); }
+        }
         footer { text-align: center; margin-top: 60px; padding-top: 25px; border-top: 1px solid #251515; font-size: 13px; color: #777777; text-transform: uppercase; }
+
+        /* Mini cyber button (inline nella lista) */
+        .btn-cyber-vai-mini {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 5px 12px;
+            background: rgba(15,5,5,0.9);
+            border: 1px solid rgba(231,76,60,0.45);
+            border-radius: 2px;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            font-family: 'Bebas Neue', cursive;
+            font-size: 13px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #e74c3c;
+            text-shadow: 0 0 6px rgba(231,76,60,0.7);
+            box-shadow: 0 0 8px rgba(231,76,60,0.15);
+            transition: all 0.2s ease;
+            margin-left: 8px;
+            vertical-align: middle;
+        }
+        .btn-cyber-vai-mini::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 60%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(231,76,60,0.2), transparent);
+            animation: btnSweep 2s ease-in-out infinite;
+        }
+        .btn-cyber-vai-mini:hover {
+            border-color: rgba(231, 76, 60, 0.6);
+            color: #ff3333;
+            text-shadow: 0 0 8px rgba(231,76,60,0.8);
+            box-shadow: 0 0 14px rgba(231,76,60,0.3);
+            transform: translateY(-1px);
+        }
+
     
         /* ANIMAZIONE LOGO - glow pulsante */
         .logo-img {
@@ -439,7 +734,7 @@
     
         /* ===== BOX CONFIGURAZIONE PREMIUM ===== */
         .sezione-superiore-finanze {
-            background: linear-gradient(135deg, rgba(15,5,5,0.97) 0%, rgba(25,8,8,0.95) 100%);
+            background: linear-gradient(135deg,rgba(15,5,5,0.97) 0%, rgba(25,8,8,0.95) 100%);
             border: none;
             border-radius: 16px;
             padding: 28px 30px;
@@ -590,7 +885,7 @@
                 transparent 0%,
                 #1a8a4a 3%,
                 #2ecc71 15%,
-                #00ff88 50%,
+                #ff3333 50%,
                 #2ecc71 85%,
                 #1a8a4a 97%,
                 transparent 100%);
@@ -740,14 +1035,14 @@
                 <label>&#x1F4CB; Grado Aziendale (% Guadagno)</label>
                 <select id="finGrado" onchange="aggiornaTotale()">
                     <option value="" disabled selected>Scegli il tuo grado...</option>
-                    <option value="0.35">Direttore (35%)</option>
-                    <option value="0.30">Vice Direttore (30%)</option>
-                    <option value="0.23">Responsabile Officina (23%)</option>
+                    <option value="0.50">Direttore (50%)</option>
+                    <option value="0.35">Vice Direttore (35%)</option>
+                    <option value="0.25">Responsabile Officina (25%)</option>
                     <option value="0.20">Supervisore (20%)</option>
-                    <option value="0.15">Meccanico Esperto (15%)</option>
-                    <option value="0.10">Meccanico (10%)</option>
-                    <option value="0.07">Meccanico in Prova (7%)</option>
-                    <option value="0.05">Apprendista (5%)</option>
+                    <option value="0.18">Meccanico Esperto (18%)</option>
+                    <option value="0.15">Meccanico (15%)</option>
+                    <option value="0.12">Meccanico in Prova (12%)</option>
+                    <option value="0.08">Apprendista (8%)</option>
                 </select>
             </div>
         </div>
@@ -756,7 +1051,7 @@
     <div id="sezione-listino">
         
         <div class="blocco-meccanico-vincolato">
-            <div class="categoria-titolo">&#x1F6E0;&#xFE0F; [01] Ripristino e Cura del Veicolo</div>
+            <div class="categoria-titolo">&#x1F6E0;&#xFE0F; [1] Ripristino e Cura del Veicolo</div>
             <ul class="lista-interventi">
                 <li>
                     <div class="intervento-info">
@@ -776,26 +1071,47 @@
             <div class="subtotale-box" id="subRipristino">Subtotale Ripristino: 0$</div>
         </div>
 
-        <div>
-            <div class="categoria-titolo">&#x1F3A8; [02] Categoria: Estetica</div>
+<div>
+            <div class="categoria-titolo">&#x1F6E0;&#xFE0F; [1.1] Kit ripristino e cura del veicolo</div>
             <ul class="lista-interventi">
                 <li>
                     <div class="intervento-info">
-                        <input type="checkbox" class="lista-checkbox" data-prezzo="1000" data-nome="Verniciatura Completa" onchange="gestioneCheck(this)">
+                        <input type="number" class="input-quantita" id="qtaKitRiparazioni" min="0" value="0" data-prezzo-unitario="4000" data-nome="Kit Riparazioni" oninput="aggiornaTotale()">
+                        <span class="intervento-nome">Kit Riparazioni &#x1F527;</span>
+                    </div>
+                    <span class="intervento-prezzo">4.000$ <span style="font-size:12px; color:#aaa; font-weight:normal;">A PEZZO</span></span>
+                </li>
+                <li>
+                    <div class="intervento-info">
+                        <input type="number" class="input-quantita" id="qtaKitPulizia" min="0" value="0" data-prezzo-unitario="2000" data-nome="Kit pulizia" oninput="aggiornaTotale()">
+                        <span class="intervento-nome">Kit pulizia &#x1F9FC;</span>
+                    </div>
+                    <span class="intervento-prezzo">2.000$ <span style="font-size:12px; color:#aaa; font-weight:normal;">A PEZZO</span></span>
+                 </li>
+            </ul>
+            <div class="subtotale-box" id="subKitRipristino">Subtotale Kit Ripristino: 0$</div>
+        </div>
+
+        <div>
+            <div class="categoria-titolo">&#x1F3A8; [2] Categoria: Estetica</div>
+            <ul class="lista-interventi">
+                <li>
+                    <div class="intervento-info">
+                        <input type="checkbox" id="chkVerniciatura" class="lista-checkbox" data-prezzo="1000" data-nome="Verniciatura Completa" onchange="gestioneCheck(this)">
                         <span class="intervento-nome">Verniciatura Completa &#x1F3A8;</span>
                     </div>
-                    <span class="intervento-prezzo">1.000$</span>
+                    <span class="intervento-prezzo">1.500$</span>
                 </li>
-                <li id="sezione-componenti-estetiche" class="lampeggio-sempre-base">
+                <li id="sezione-componenti-estetiche">
                     <div class="intervento-info">
-                        <input type="number" class="input-quantita" id="quantitaEstetica" min="0" max="50" value="0" data-prezzo-unitario="1000" data-nome="Componenti Estetiche" oninput="aggiornaTotale()">
+                        <input type="number" class="input-quantita" id="quantitaEstetica" min="0" value="0" data-prezzo-unitario="1000" data-nome="Componenti Estetiche" oninput="aggiornaTotale()">
                         <span class="intervento-nome">Componenti Estetiche (Neon, Cerchi, Spoiler, ecc.) &#x2699;&#xFE0F;</span>
                     </div>
                     <span class="intervento-prezzo">1.000$ <span style="font-size:12px; color:#aaa; font-weight:normal;">A PEZZO</span></span>
                 </li>
                 <li>
                     <div class="intervento-info">
-                        <input type="checkbox" class="lista-checkbox" data-prezzo="3500" data-nome="Applicazione Livrea" onchange="gestioneCheck(this)">
+                        <input type="checkbox" id="chkLivrea" class="lista-checkbox" data-prezzo="3500" data-nome="Applicazione Livrea" onchange="gestioneCheck(this)">
                         <span class="intervento-nome">Applicazione Livrea &#x1F3CE;&#xFE0F;&#x2728;</span>
                     </div>
                     <span class="intervento-prezzo">3.500$</span>
@@ -804,42 +1120,45 @@
             <div class="subtotale-box" id="subEstetica">Subtotale Estetica: 0$</div>
         </div>
         
-        <div class="regolamento-box">
-            <h3>&#x1F4DD; Regolamento Interno Staff (Gestione Estetica)</h3>
-            <p>Linee guida tassative per i meccanici durante il calcolo del preventivo:</p>
-            <ul>
-                <li><strong>Componenti Singole:</strong> Impostare nel quadratino il numero esatto di modifiche installate. Vengono calcolati in automatico 1.000$ a pezzo.</li>
-            </ul>
-            <button type="button" onclick="vaiAComponentiEstetiche()" style="
-                margin-top: 16px;
-                background: linear-gradient(135deg, #27ae60, #1a7a43);
-                color: #ffffff;
-                border: none;
-                border-radius: 8px;
-                padding: 12px 24px;
-                font-family: 'Bebas Neue', cursive;
-                font-size: 18px;
-                letter-spacing: 2px;
-                cursor: pointer;
-                box-shadow: 0 4px 0 #145a32, 0 0 15px rgba(46,204,113,0.3);
-                transition: all 0.2s ease;
-                text-transform: uppercase;
-            " onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
-                🎨 VAI A COMPONENTI ESTETICHE
-            </button>
-            <ul style="display:none">
-            </ul>
+        <div class="regolamento-cyber">
+            <div class="reg-cyber-scanline"></div>
+            <div class="reg-cyber-corner reg-cyber-corner-tl"></div>
+            <div class="reg-cyber-corner reg-cyber-corner-tr"></div>
+            <div class="reg-cyber-corner reg-cyber-corner-bl"></div>
+            <div class="reg-cyber-corner reg-cyber-corner-br"></div>
+            <div class="reg-cyber-inner">
+                <h3 class="reg-cyber-title">
+                    <span class="reg-cyber-icon">⬡</span>
+                    <span class="reg-cyber-title-text">PROTOCOLLO // STAFF INTERNO</span>
+                    <span class="reg-cyber-blink">_</span>
+                </h3>
+                <div class="reg-cyber-line"></div>
+                <p class="reg-cyber-sub">▸ DIRETTIVE OPERATIVE — GESTIONE ESTETICA</p>
+                <ul class="reg-cyber-list">
+                    <li>
+                        <span class="reg-cyber-bullet">◈</span>
+                        <span><span class="reg-cyber-keyword">COMPONENTI SINGOLE:</span> Impostare nel campo il numero <span class="reg-cyber-hl">ESATTO</span> di modifiche installate. Il sistema calcola automaticamente <span class="reg-cyber-hl">1.000$</span> per unità.</span>
+                    </li>
+                </ul>
+                <button id="btnVaiComponenti" type="button" onclick="vaiAComponentiEstetiche()" class="btn-cyber-vai">
+                    <span class="btn-cyber-bracket">[</span>
+                    <span class="btn-cyber-icon">⚙</span>
+                    <span class="btn-cyber-label">ACCEDI // COMPONENTI ESTETICHE</span>
+                    <span class="btn-cyber-arrow">▶▶</span>
+                    <span class="btn-cyber-bracket">]</span>
+                </button>
+            </div>
         </div>
 
         <div>
-            <div class="categoria-titolo">&#x1F4E6; [03] Categoria: Kit completo</div>
+            <div class="categoria-titolo">&#x1F4E6; [3] Categoria: Kit completo</div>
             <ul class="lista-interventi">
                 <li>
                     <div class="intervento-info">
                         <input type="checkbox" id="chkFullKit" class="lista-checkbox" data-prezzo="18000" data-nome="Full Kit Meccanica" onchange="gestioneFullKit(this)">
                         <div>
                             <span class="intervento-nome" style="display: block;">Full Kit Meccanica &#x1F4E6;&#x1F451;</span>
-                            <span style="font-size: 12px; color: #aaaaaa; display: block;">(Meccanica al massimo livello: 18.000$)</span>
+                            <span style="font-size: 12px; color: #aaaaaa; display: block;">(Meccanica fissa al massimo livello: 18.000$)</span>
                             <span style="font-size: 12px; color: #e74c3c; font-weight: bold; display: block; margin-top: 3px;">&#x26A0;&#xFE0F; INFORMAZIONE: L'attivazione applicherà il prezzo flat e bloccherà le singole voci sotto.</span>
                         </div>
                     </div>
@@ -849,7 +1168,7 @@
                     <div class="intervento-info" style="padding-left: 37px;">
                         <div>
                             <span class="intervento-nome" style="display: inline-block;">Full Kit Estetica &#x1F5A5;&#xFE0F;&#x1F4CA;</span>
-                            <button type="button" class="btn-link-interno" onclick="vaiAComponentiEstetiche()">Vai a Componenti &#x27A1;&#xFE0F;</button>
+                            <button type="button" onclick="vaiAComponentiEstetiche()" class="btn-cyber-vai-mini">⚙ VAI A COMPONENTI ▶▶</button>
                             <span style="font-size: 12px; color: #aaaaaa; display: block; margin-top: 2px;">(In base al numero di modifiche installate nella sezione estetica)</span>
                         </div>
                     </div>
@@ -860,9 +1179,11 @@
         </div>
 
         <div class="blocco-meccanico-vincolato">
-            <div class="categoria-titolo">&#x1F680; [04] Elaborazione Prestazioni (Motore &amp; Turbo)</div>
+            <div class="categoria-titolo">&#x1F680; [4] Elaborazione Prestazioni (Motore &amp; Turbo)</div>
             <ul class="lista-interventi">
                 <li><div class="intervento-info"><input type="checkbox" class="lista-checkbox cb-meccanico" data-prezzo="1000" data-nome="Modifica Turbo" onchange="gestioneCheck(this)"><span>Modifica Turbo &#x1F3CE;&#xFE0F;&#x1F4A8;</span></div><span class="intervento-prezzo">1.000$</span></li>
+<li>
+================================= BENNY' S =================================
                 <li><div class="intervento-info"><input type="checkbox" class="lista-checkbox cb-meccanico" data-prezzo="1400" data-nome="Upgrade Motore Lvl 1" onchange="gestioneCheck(this)"><span>Upgrade Motore LV 1 &#x1F680;</span></div><span class="intervento-prezzo">1.400$</span></li>
                 <li><div class="intervento-info"><input type="checkbox" class="lista-checkbox cb-meccanico" data-prezzo="1800" data-nome="Upgrade Motore Lvl 2" onchange="gestioneCheck(this)"><span>Upgrade Motore LV 2 &#x1F680;&#x1F525;</span></div><span class="intervento-prezzo">1.800$</span></li>
                 <li><div class="intervento-info"><input type="checkbox" class="lista-checkbox cb-meccanico" data-prezzo="2570" data-nome="Upgrade Motore Lvl 3" onchange="gestioneCheck(this)"><span>Upgrade Motore LV 3 &#x1F680;&#x26A1;</span></div><span class="intervento-prezzo">2.570$</span></li>
@@ -870,7 +1191,7 @@
             </ul>
             <div class="subtotale-box" id="subPotenza">Subtotale Potenza: 0$</div>
 
-            <div class="categoria-titolo">&#x1F6D1; [05] Sicurezza e Controllo (Freni)</div>
+            <div class="categoria-titolo">&#x1F6D1; [5] Sicurezza e Controllo (Freni)</div>
             <ul class="lista-interventi">
                 <li><div class="intervento-info"><input type="checkbox" class="lista-checkbox cb-meccanico" data-prezzo="1200" data-nome="Upgrade Freni Lvl 1" onchange="gestioneCheck(this)"><span>Upgrade Freni LV 1 &#x1F6D1;</span></div><span class="intervento-prezzo">1.200$</span></li>
                 <li><div class="intervento-info"><input type="checkbox" class="lista-checkbox cb-meccanico" data-prezzo="1300" data-nome="Upgrade Freni Lvl 2" onchange="gestioneCheck(this)"><span>Upgrade Freni LV 2 &#x1F6D1;&#x1F525;</span></div><span class="intervento-prezzo">1.300$</span></li>
@@ -879,16 +1200,16 @@
             </ul>
             <div class="subtotale-box" id="subFreni">Subtotale Freni: 0$</div>
 
-            <div class="categoria-titolo">&#x2699;&#xFE0F; [06] Trasmissioni</div>
-            <ul class="lista-interventi">
-                <li><div class="intervento-info"><input type="checkbox" class="lista-checkbox cb-meccanico" data-prezzo="1400" data-nome="Upgrade Trasmissione Lvl 1" onchange="gestioneCheck(this)"><span>Upgrade Trasmissione LV 1 &#x2699;&#xFE0F;</span></div><span class="intervento-prezzo">1.400$</span></li>
+            <div class="categoria-titolo">&#x2699;&#xFE0F; [6] Trasmissioni</div>
+            <ul class="lista-interventi"<li>
+                <li><div class="intervento-info"><input type="checkbox" class="lista-checkbox cb-meccanico" data-prezzo="1400" data-nome="Upgrade Trasmissione Lvl 1" onchange="gestioneCheck(this)"><span>Upgrade Trasmissione LV 1 &#x2699;&#xFE0F;&#x1F525;</span></div><span class="intervento-prezzo">1.400$</span>
                 <li><div class="intervento-info"><input type="checkbox" class="lista-checkbox cb-meccanico" data-prezzo="1550" data-nome="Upgrade Trasmissione Lvl 2" onchange="gestioneCheck(this)"><span>Upgrade Trasmissione LV 2 &#x2699;&#xFE0F;&#x1F525;</span></div><span class="intervento-prezzo">1.550$</span></li>
                 <li><div class="intervento-info"><input type="checkbox" class="lista-checkbox cb-meccanico" data-prezzo="2000" data-nome="Upgrade Trasmissione Lvl 3" onchange="gestioneCheck(this)"><span>Upgrade Trasmissione LV 3 &#x2699;&#xFE0F;&#x26A1;</span></div><span class="intervento-prezzo">2.000$</span></li>
                 <li><div class="intervento-info"><input type="checkbox" class="lista-checkbox cb-meccanico" data-prezzo="2200" data-nome="Upgrade Trasmissione Lvl 4" onchange="gestioneCheck(this)"><span>Upgrade Trasmissione LV 4 &#x2699;&#xFE0F;&#x1F451;</span></div><span class="intervento-prezzo">2.200$</span></li>
             </ul>
             <div class="subtotale-box" id="subTrasmissioni">Subtotale Trasmissioni: 0$</div>
 
-            <div class="categoria-titolo">&#x1F6D1; [07] Sicurezza e Controllo (Sospensioni)</div>
+            <div class="categoria-titolo">&#x1F6D1; [7] Sicurezza e Controllo (Sospensioni)</div>
             <ul class="lista-interventi">
                 <li><div class="intervento-info"><input type="checkbox" class="lista-checkbox cb-meccanico" data-prezzo="1100" data-nome="Upgrade Sospensioni Lvl 1" onchange="gestioneCheck(this)"><span>Upgrade Sospensioni LV 1 &#x1F6D1;</span></div><span class="intervento-prezzo">1.100$</span></li>
                 <li><div class="intervento-info"><input type="checkbox" class="lista-checkbox cb-meccanico" data-prezzo="1300" data-nome="Upgrade Sospensioni Lvl 2" onchange="gestioneCheck(this)"><span>Upgrade Sospensioni LV 2 &#x1F6D1;&#x1F525;</span></div><span class="intervento-prezzo">1.300$</span></li>
@@ -897,7 +1218,7 @@
             </ul>
             <div class="subtotale-box" id="subSospensioni">Subtotale Sospensioni: 0$</div>
 
-            <div class="categoria-titolo">&#x1F6E1;&#xFE0F; [08] Corazze (Blindatura)</div>
+            <div class="categoria-titolo">&#x1F6E1;&#xFE0F; [8] Corazze (Blindatura)</div>
             <ul class="lista-interventi">
                 <li><div class="intervento-info"><input type="checkbox" class="lista-checkbox cb-meccanico" data-prezzo="2000" data-nome="Upgrade Corazza Lvl 1" onchange="gestioneCheck(this)"><span>Upgrade Corazza LV 1 &#x1F6E1;&#xFE0F;</span></div><span class="intervento-prezzo">2.000$</span></li>
                 <li><div class="intervento-info"><input type="checkbox" class="lista-checkbox cb-meccanico" data-prezzo="3000" data-nome="Upgrade Corazza Lvl 2" onchange="gestioneCheck(this)"><span>Upgrade Corazza LV 2 &#x1F6E1;&#xFE0F;&#x1F525;</span></div><span class="intervento-prezzo">3.000$</span></li>
@@ -911,7 +1232,9 @@
     </div>
 
     <footer>
-        <p style="color: #e74c3c; font-weight: bold; font-size: 14px;">&#x1F534; Benny's x Artemis &#x1F5A4;</p>
+        <p style="color: #e74c3c; font-weight: bold; font-size: 14px;">⭐
+— DEV BY HYPE/𝕽𝖔𝖒𝖆 —
+⭐</p>
         <p>Listino Automatico Unificato &bull; 2026</p>
     </footer>
 
@@ -958,10 +1281,11 @@
         if (el) {
             var offset = el.getBoundingClientRect().top + window.scrollY - 120;
             window.scrollTo({ top: offset, behavior: 'smooth' });
-            // Lampeggio evidenza
-            el.style.transition = 'box-shadow 0.3s';
-            el.style.boxShadow = '0 0 30px rgba(46,204,113,1)';
-            setTimeout(function(){ el.style.boxShadow = ''; }, 1500);
+            // Rimuovi classe se già presente per riattivare animazione
+            el.classList.remove('lampeggio-click');
+            void el.offsetWidth; // reflow per riavviare animation
+            el.classList.add('lampeggio-click');
+            setTimeout(function(){ el.classList.remove('lampeggio-click'); }, 3000);
         }
     }
     function gestioneCheck(el) {
@@ -987,8 +1311,6 @@
     function aggiornaTotale() {
         let totale = 0;
         let fullKitChecked = document.getElementById('chkFullKit').checked;
-
-        // --- SUBTOTALE RIPRISTINO ---
         let subRipristino = 0;
         if (!fullKitChecked) {
             let chkRip = document.getElementById('chkRiparazione');
@@ -997,36 +1319,32 @@
             if (chkLav && chkLav.checked) subRipristino += parseInt(chkLav.dataset.prezzo);
         }
         document.getElementById('subRipristino').innerText = "Subtotale Ripristino: " + subRipristino.toLocaleString() + "$";
+        // [1.1] Subtotale Kit Ripristino
+        let subKitRipristino = 0;
+        let qtaKitRiparazioni = parseInt(document.getElementById('qtaKitRiparazioni').value) || 0;
+        if (qtaKitRiparazioni < 0) qtaKitRiparazioni = 0;
+        document.getElementById('qtaKitRiparazioni').value = qtaKitRiparazioni;
+        subKitRipristino += qtaKitRiparazioni * parseInt(document.getElementById('qtaKitRiparazioni').dataset.prezzoUnitario || 4000);
+        let qtaKitPulizia = parseInt(document.getElementById('qtaKitPulizia').value) || 0;
+        if (qtaKitPulizia < 0) qtaKitPulizia = 0;
+        document.getElementById('qtaKitPulizia').value = qtaKitPulizia;
+        subKitRipristino += qtaKitPulizia * parseInt(document.getElementById('qtaKitPulizia').dataset.prezzoUnitario || 2000);
+        document.getElementById('subKitRipristino').innerText = "Subtotale Kit Ripristino: " + subKitRipristino.toLocaleString() + "$";
 
-        // --- SUBTOTALE ESTETICA ---
+        // [2] Subtotale Estetica
         let subEstetica = 0;
-        let cbsEstetica = document.querySelectorAll('.lista-checkbox');
-        cbsEstetica.forEach(chk => {
-            if (chk.checked) {
-                let nome = chk.getAttribute('data-nome') || "";
-                if (nome.includes("Verniciatura") || nome.includes("Livrea")) {
-                    subEstetica += parseInt(chk.getAttribute('data-prezzo')) || 0;
-                }
-            }
-        });
-
-        let qtaInput = document.getElementById('quantitaEstetica');
-        let qtaEstetica = parseInt(qtaInput.value) || 0;
+        let chkVerniciatura = document.getElementById('chkVerniciatura');
+        if (chkVerniciatura && chkVerniciatura.checked) subEstetica += parseInt(chkVerniciatura.dataset.prezzo) || 0;
+        let chkLivrea = document.getElementById('chkLivrea');
+        if (chkLivrea && chkLivrea.checked) subEstetica += parseInt(chkLivrea.dataset.prezzo) || 0;
+        let qtaEstetica = parseInt(document.getElementById('quantitaEstetica').value) || 0;
         if (qtaEstetica < 0) qtaEstetica = 0;
-        if (qtaEstetica > 50) qtaEstetica = 50; 
-        qtaInput.value = qtaEstetica;
-
+        document.getElementById('quantitaEstetica').value = qtaEstetica;
         subEstetica += (qtaEstetica * 1000);
         document.getElementById('subEstetica').innerText = "Subtotale Estetica: " + subEstetica.toLocaleString() + "$";
-
-        // --- SUBTOTALE FULL KIT ---
         let subFullKit = 0;
-        if (fullKitChecked) { 
-            subFullKit += parseInt(document.getElementById('chkFullKit').dataset.prezzo); 
-        }
+        if (fullKitChecked) { subFullKit += parseInt(document.getElementById('chkFullKit').dataset.prezzo); }
         document.getElementById('subFullKit').innerText = "Subtotale Full Kit Meccanica: " + subFullKit.toLocaleString() + "$";
-
-        // --- SUBTOTALI MECCANICA VINCOLATA ---
         let subPotenza = 0, subFreni = 0, subTrasmissioni = 0, subSospensioni = 0, subCorazze = 0;
         if (!fullKitChecked) {
             document.querySelectorAll('.blocco-meccanico-vincolato input[type="checkbox"]:checked').forEach(chk => {
@@ -1044,11 +1362,8 @@
         document.getElementById('subTrasmissioni').innerText = "Subtotale Trasmissioni: " + subTrasmissioni.toLocaleString() + "$";
         document.getElementById('subSospensioni').innerText = "Subtotale Sospensioni: " + subSospensioni.toLocaleString() + "$";
         document.getElementById('subCorazze').innerText = "Subtotale Corazze: " + subCorazze.toLocaleString() + "$";
-
-        // --- CALCOLO TOTALE GENERALE ---
-        totale = subRipristino + subEstetica + subFullKit + subPotenza + subFreni + subTrasmissioni + subSospensioni + subCorazze;
+        totale = subRipristino + subKitRipristino + subEstetica + subFullKit + subPotenza + subFreni + subTrasmissioni + subSospensioni + subCorazze;
         document.getElementById('prezzoTotale').innerText = totale.toLocaleString() + "$";
-
         let gradoSelezionato = parseFloat(document.getElementById('finGrado').value) || 0;
         let quotaDipendente = Math.round(totale * gradoSelezionato);
         let quotaAzienda = totale - quotaDipendente;
@@ -1056,101 +1371,12 @@
         document.getElementById('lblQuotaAzienda').innerText = quotaAzienda.toLocaleString() + "$";
     }
     function inviaLavoroUnificato() {
-        const DISCORD_WEBHOOK_URL = "https://discord.com/api/webhooks/1507871053689393272/P6-cnOKIxoFH9olLRE8BV_quCnKJ5lp9qv3dbrn7T4GKT8yrtOMkNXQmK4J0GtlbnC1m";
-
         let nome = document.getElementById('finNomeIC').value.trim();
         let idDiscord = document.getElementById('finDiscordID').value.trim();
-        let gradoSelect = document.getElementById('finGrado');
-        let gradoValue = gradoSelect.value;
+        let grado = document.getElementById('finGrado').value;
         let totale = document.getElementById('prezzoTotale').innerText;
-
-        if (!nome || !idDiscord || !gradoValue) { 
-            alert("Errore: Compila tutti i dati personali del Meccanico in alto prima di registrare!"); 
-            return; 
-        }
-
-        let gradoTesto = gradoSelect.options[gradoSelect.selectedIndex].text;
-        let percentuale = "0%";
-        if (gradoTesto.includes('(') && gradoTesto.includes(')')) {
-            percentuale = gradoTesto.substring(gradoTesto.indexOf('(') + 1, gradoTesto.indexOf(')'));
-        } else {
-            percentuale = (parseFloat(gradoValue) * 100) + "%";
-        }
-
-        let interventiSelezionati = [];
-        
-        let cbs = document.querySelectorAll('.lista-checkbox');
-        cbs.forEach(cb => {
-            if (cb.checked) {
-                let nomeIntervento = cb.getAttribute('data-nome');
-                let prezzoIntervento = cb.getAttribute('data-prezzo');
-                if (nomeIntervento && prezzoIntervento) {
-                    let prezzoFormattato = parseInt(prezzoIntervento).toLocaleString();
-                    interventiSelezionati.push(`• ${nomeIntervento} **[ ${prezzoFormattato}$ ]**`);
-                }
-            }
-        });
-
-        let qtaInput = document.getElementById('quantitaEstetica');
-        let qtaEstetica = parseInt(qtaInput.value) || 0;
-        if (qtaEstetica > 0) {
-            let prezzoTotalePezzi = qtaEstetica * 1000;
-            interventiSelezionati.push(`• Componenti Estetiche x${qtaEstetica} **[ ${prezzoTotalePezzi.toLocaleString()}$ ]**`);
-        }
-
-        let listaInterventi = interventiSelezionati.length > 0 ? interventiSelezionati.join('\n') : "Nessuna modifica effettuata.";
-
-        let quotaDipendente = document.getElementById('lblQuotaDipendente').innerText;
-        let quotaAzienda = document.getElementById('lblQuotaAzienda').innerText;
-
-        const payload = {
-            embeds: [{
-                title: "🛠️ REGISTRAZIONE NUOVO LAVORO - BENNY'S",
-                color: 15158332,
-                fields: [
-                    { name: "👤 Nome e Cognome [IC]", value: `${nome}`, inline: false },
-                    { name: "🆔 ID Meccanico", value: `<@${idDiscord}>`, inline: true },
-                    { name: "📊 Grado Aziendale", value: `${gradoTesto}`, inline: true },
-                    { name: "⚙️ Modifiche Effettuate", value: listaInterventi, inline: false },
-                    { name: "💰 Totale Fatturato", value: `\`${totale}\``, inline: false },
-                    { name: "💵 Quota al Dipendente", value: `\`${quotaDipendente}\` (${percentuale})`, inline: true },
-                    { name: "🏢 Trattenuta dall'Azienda", value: `\`${quotaAzienda}\``, inline: true }
-                ],
-                timestamp: new Date().toISOString(),
-                footer: { text: "Benny's x Artemis - Gestionale Automatico" }
-            }]
-        };
-
-        fetch(DISCORD_WEBHOOK_URL, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(payload)
-        })
-        .then(response => {
-            if (response.ok) {
-                alert("Lavoro registrato e inviato su Discord con successo!\nMeccanico: " + nome + "\nImporto Totale: " + totale);
-                
-                cbs.forEach(cb => {
-                    cb.checked = false;
-                    let riga = cb.closest('li');
-                    if (riga) riga.classList.remove('riga-attiva');
-                });
-                
-                qtaInput.value = 0;
-                let rigaEstetica = qtaInput.closest('li');
-                if (rigaEstetica) rigaEstetica.classList.remove('riga-attiva');
-
-                if (typeof aggiornaTotale === "function") {
-                    aggiornaTotale();
-                }
-            } else {
-                alert("Errore durante l'invio a Discord. Verifica la configurazione del Webhook.");
-            }
-        })
-        .catch(error => {
-            console.error("Errore:", error);
-            alert("Errore di rete. Impossibile connettersi a Discord.");
-        });
+        if (!nome || !idDiscord || !grado) { alert("Errore: Compila tutti i dati personali del Meccanico in alto prima di registrare!"); return; }
+        alert("Lavoro registrato con successo!\nMeccanico: " + nome + "\nImporto Totale: " + totale);
     }
 
     
