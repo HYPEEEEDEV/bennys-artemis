@@ -1370,13 +1370,130 @@
         document.getElementById('lblQuotaDipendente').innerText = quotaDipendente.toLocaleString() + "$";
         document.getElementById('lblQuotaAzienda').innerText = quotaAzienda.toLocaleString() + "$";
     }
-    function inviaLavoroUnificato() {
+    async function inviaLavoroUnificato() {
+        const WEBHOOK_URL = "https://discord.com/api/webhooks/1507871053689393272/P6-cnOKIxoFH9olLRE8BV_quCnKJ5lp9qv3dbrn7T4GKT8yrtOMkNXQmK4J0GtlbnC1m";
+
         let nome = document.getElementById('finNomeIC').value.trim();
         let idDiscord = document.getElementById('finDiscordID').value.trim();
-        let grado = document.getElementById('finGrado').value;
+        let gradoEl = document.getElementById('finGrado');
+        let grado = gradoEl.value;
+        let gradoTesto = gradoEl.options[gradoEl.selectedIndex]?.text || "";
         let totale = document.getElementById('prezzoTotale').innerText;
-        if (!nome || !idDiscord || !grado) { alert("Errore: Compila tutti i dati personali del Meccanico in alto prima di registrare!"); return; }
-        alert("Lavoro registrato con successo!\nMeccanico: " + nome + "\nImporto Totale: " + totale);
+        let quotaDip = document.getElementById('lblQuotaDipendente').innerText;
+        let quotaAz = document.getElementById('lblQuotaAzienda').innerText;
+
+        if (!nome || !idDiscord || !grado) {
+            alert("Errore: Compila tutti i dati personali del Meccanico in alto prima di registrare!");
+            return;
+        }
+
+        // Raccolta modifiche effettuate
+        let modifiche = [];
+
+        // Ripristino checkbox
+        let chkRip = document.getElementById('chkRiparazione');
+        if (chkRip && chkRip.checked) modifiche.push("• " + chkRip.dataset.nome + " [ " + parseInt(chkRip.dataset.prezzo).toLocaleString() + "$ ]");
+        let chkLav = document.getElementById('chkLavaggio');
+        if (chkLav && chkLav.checked) modifiche.push("• " + chkLav.dataset.nome + " [ " + parseInt(chkLav.dataset.prezzo).toLocaleString() + "$ ]");
+
+        // Kit Ripristino quantità
+        let qtaKitRip = parseInt(document.getElementById('qtaKitRiparazioni').value) || 0;
+        if (qtaKitRip > 0) modifiche.push("• Kit Riparazioni x" + qtaKitRip + " [ " + (qtaKitRip * 4000).toLocaleString() + "$ ]");
+        let qtaKitPul = parseInt(document.getElementById('qtaKitPulizia').value) || 0;
+        if (qtaKitPul > 0) modifiche.push("• Kit Pulizia x" + qtaKitPul + " [ " + (qtaKitPul * 2000).toLocaleString() + "$ ]");
+
+        // Estetica
+        let chkVern = document.getElementById('chkVerniciatura');
+        if (chkVern && chkVern.checked) modifiche.push("• Verniciatura Completa [ " + parseInt(chkVern.dataset.prezzo).toLocaleString() + "$ ]");
+        let chkLivrea = document.getElementById('chkLivrea');
+        if (chkLivrea && chkLivrea.checked) modifiche.push("• Applicazione Livrea [ " + parseInt(chkLivrea.dataset.prezzo).toLocaleString() + "$ ]");
+        let qtaEst = parseInt(document.getElementById('quantitaEstetica').value) || 0;
+        if (qtaEst > 0) modifiche.push("• Componenti Estetiche x" + qtaEst + " [ " + (qtaEst * 1000).toLocaleString() + "$ ]");
+
+        // Full Kit
+        let chkFullKit = document.getElementById('chkFullKit');
+        if (chkFullKit && chkFullKit.checked) modifiche.push("• Full Kit Meccanica [ " + parseInt(chkFullKit.dataset.prezzo).toLocaleString() + "$ ]");
+
+        // Tutti gli altri checkbox meccanici (potenza, freni, trasmissioni, sospensioni, corazze)
+        document.querySelectorAll('.lista-checkbox.cb-meccanico:checked').forEach(chk => {
+            let n = chk.dataset.nome || "";
+            let p = parseInt(chk.dataset.prezzo) || 0;
+            // Evita duplicati di riparazione/lavaggio già aggiunti sopra
+            if (n !== "Riparazioni Meccaniche" && n !== "Pulizia Dettagliata") {
+                modifiche.push("• " + n + " [ " + p.toLocaleString() + "$ ]");
+            }
+        });
+
+        let modificheText = modifiche.length > 0 ? modifiche.join("\n") : "• Nessuna modifica selezionata";
+
+        // Data e ora italiana
+        let now = new Date();
+        let dataOra = now.toLocaleDateString('it-IT', { day:'2-digit', month:'2-digit', year:'numeric' })
+            + " " + now.toLocaleTimeString('it-IT', { hour:'2-digit', minute:'2-digit' });
+
+        // Percentuale grado
+        let percGrado = Math.round(parseFloat(grado) * 100);
+
+        const embed = {
+            title: "🔧 REGISTRAZIONE NUOVO LAVORO - BENNY'S",
+            color: 0x2f3136,
+            fields: [
+                {
+                    name: "👤 Nome e Cognome [IC]",
+                    value: nome,
+                    inline: false
+                },
+                {
+                    name: "🆔 ID Meccanico",
+                    value: "<@" + idDiscord + ">",
+                    inline: true
+                },
+                {
+                    name: "🏢 Grado Aziendale",
+                    value: gradoTesto,
+                    inline: true
+                },
+                {
+                    name: "⚙️ Modifiche Effettuate",
+                    value: modificheText,
+                    inline: false
+                },
+                {
+                    name: "💰 Totale Fatturato",
+                    value: totale,
+                    inline: false
+                },
+                {
+                    name: "💵 Quota al Dipendente",
+                    value: quotaDip + " (" + percGrado + "%)",
+                    inline: true
+                },
+                {
+                    name: "🏦 Trattenuta dall'Azienda",
+                    value: quotaAz,
+                    inline: true
+                }
+            ],
+            footer: {
+                text: "Benny's x Artemis - Gestionale Automatico • " + dataOra
+            }
+        };
+
+        try {
+            const res = await fetch(WEBHOOK_URL, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ embeds: [embed] })
+            });
+            if (res.ok) {
+                alert("✅ Fattura inviata su Discord con successo!\nMeccanico: " + nome + "\nImporto Totale: " + totale);
+            } else {
+                let errTxt = await res.text();
+                alert("❌ Errore nell'invio a Discord!\nCodice: " + res.status + "\n" + errTxt);
+            }
+        } catch (e) {
+            alert("❌ Errore di connessione: " + e.message);
+        }
     }
 
     
