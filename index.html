@@ -110,7 +110,7 @@
             transition: all 0.3s ease;
         }
 
-        /* Forza la visualizzazione in maiuscolo nel campo nome */
+        /* Forza visivamente il testo in maiuscolo */
         input#nomeMeccanico {
             text-transform: uppercase;
         }
@@ -261,7 +261,7 @@
         <div class="grid-3" style="grid-template-columns: 2fr 1fr;">
             <div class="form-group">
                 <label for="nomeMeccanico">Nome e Cognome Meccanico</label>
-                <input type="text" id="nomeMeccanico" required placeholder="ES: MARIO ROSSI" autocomplete="off">
+                <input type="text" id="nomeMeccanico" required placeholder="ES: MARIO ROSSI" autocomplete="off" oninput="this.value = this.value.toUpperCase()">
             </div>
             <div class="form-group">
                 <label for="gradoMeccanico">Grado / Ruolo</label>
@@ -426,7 +426,6 @@
     function calcolaTotale() {
         let somma = 0;
         
-        // Loop attraverso le checkbox e conversione corretta in numeri interi
         const checkboxes = document.querySelectorAll('input[type="checkbox"]');
         checkboxes.forEach(chk => {
             if (chk.checked) {
@@ -434,20 +433,16 @@
             }
         });
 
-        // Somma eventuale input manuale convertito in numero intero
         const manualeText = document.getElementById('prezzoManuale').value;
         const manualeVal = parseInt(manualeText) || 0;
         somma += manualeVal;
 
-        // Recupero percentuale grado
         const grado = document.getElementById('gradoMeccanico').value;
         const percentuale = PERCENTUALI[grado] || 50;
 
-        // Calcolo delle quote
         let quotaDipendente = Math.round((somma * percentuale) / 100);
         let quotaAzienda = somma - quotaDipendente;
 
-        // Aggiornamento interfaccia grafica
         document.getElementById('lblTotale').innerText = "$ " + somma.toLocaleString('it-IT');
         document.getElementById('lblDipendente').innerText = "$ " + quotaDipendente.toLocaleString('it-IT');
         document.getElementById('lblAzienda').innerText = "$ " + quotaAzienda.toLocaleString('it-IT');
@@ -456,7 +451,6 @@
     async function inviaFattura(e) {
         e.preventDefault();
 
-        // Forza il nome in maiuscolo all'invio
         let nome = document.getElementById('nomeMeccanico').value.trim().toUpperCase();
         let gradoId = document.getElementById('gradoMeccanico').value;
         let percGrado = PERCENTUALI[gradoId] || 50;
@@ -490,7 +484,7 @@
 
         const embed = {
             title: "🧾 RICEVUTA DI VENDITA AUTOMATICA",
-            color: 15052038, // Oro #e5ad06 in decimale
+            color: 15052038,
             fields: [
                 {
                     name: "👤 Nome e Cognome",
