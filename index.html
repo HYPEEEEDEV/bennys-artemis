@@ -1370,6 +1370,30 @@
         document.getElementById('lblQuotaDipendente').innerText = quotaDipendente.toLocaleString() + "$";
         document.getElementById('lblQuotaAzienda').innerText = quotaAzienda.toLocaleString() + "$";
     }
+    function resetLavoro() {
+        // Sblocca eventuale Full Kit (riabilita i checkbox meccanici vincolati)
+        let chkFullKit = document.getElementById('chkFullKit');
+        if (chkFullKit && chkFullKit.checked) {
+            chkFullKit.checked = false;
+            gestioneFullKit(chkFullKit);
+        }
+        // Deseleziona tutti i checkbox e rimuove l'evidenziazione della riga
+        document.querySelectorAll('.lista-checkbox').forEach(chk => {
+            chk.checked = false;
+            chk.disabled = false;
+            let li = chk.closest('li');
+            if (li) li.classList.remove('riga-attiva');
+        });
+        // Rimuove eventuali categorie disabilitate
+        document.querySelectorAll('.categoria-disabilitata').forEach(b => b.classList.remove('categoria-disabilitata'));
+        // Azzera tutte le quantità
+        document.querySelectorAll('.input-quantita').forEach(inp => { inp.value = 0; });
+        // Ricalcola i totali (NON tocca Nome/Cognome, Discord ID e Grado)
+        aggiornaTotale();
+        // Riporta la vista in cima alla pagina
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
     async function inviaLavoroUnificato() {
         const WEBHOOK_URL = "https://discord.com/api/webhooks/1507871053689393272/P6-cnOKIxoFH9olLRE8BV_quCnKJ5lp9qv3dbrn7T4GKT8yrtOMkNXQmK4J0GtlbnC1m";
 
@@ -1485,35 +1509,10 @@
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ embeds: [embed] })
             });
-           if (res.ok) {
+            if (res.ok) {
                 alert("✅ Fattura inviata su Discord con successo!\nMeccanico: " + nome + "\nImporto Totale: " + totale);
-                
-                // === RESET SELETTIVO DELLA PAGINA ===
-                
-                // 1. Reset manuale del campo cliente
-                if (document.getElementById('cliente')) {
-                    document.getElementById('cliente').value = '';
-                }
-                
-                // 2. Deselezione di tutte le checkbox e i radio button dei lavori/modifiche
-                const modificheCheckboxes = document.querySelectorAll('input[type="checkbox"], input[type="radio"]');
-                modificheCheckboxes.forEach(cb => cb.checked = false);
-                
-                // 3. Svuotamento di eventuali campi addizionali di testo per le modifiche o i prezzi manuali
-                if (document.getElementById('modifiche')) {
-                    document.getElementById('modifiche').value = '';
-                }
-                if (document.getElementById('prezzoManuale')) {
-                    document.getElementById('prezzoManuale').value = '';
-                }
-
-                // 4. Ricalcolo immediato dei totali grafici per azzerare i contatori a schermo
-                if (typeof calcolaTotale === "function") {
-                    calcolaTotale();
-                } else if (typeof calcolaTotaleModifiche === "function") {
-                    calcolaTotaleModifiche();
-                }
-                
+                // Resetta solo i lavori selezionati, mantenendo pronti Nome/Cognome, ID Discord e Grado
+                resetLavoro();
             } else {
                 let errTxt = await res.text();
                 alert("❌ Errore nell'invio a Discord!\nCodice: " + res.status + "\n" + errTxt);
