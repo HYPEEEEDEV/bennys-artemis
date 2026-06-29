@@ -1179,7 +1179,18 @@
         </div>
 
         <div class="blocco-meccanico-vincolato">
-            <div class="categoria-titolo">&#x1F680; [4] Elaborazione Prestazioni (Motore &amp; Turbo)</div>
+
+                <div class="categoria-titolo">&#x1F680; [4] Assistenza Stradale </div>
+            <ul class="lista-interventi">
+                <li><div class="intervento-info"><input type="checkbox" class="lista-checkbox cb-meccanico" data-prezzo="5000" data-nome="Entro 2km" onchange="gestioneCheck(this)"><span>Entro 2km &#128667;</span></div><span class="intervento-prezzo">5.000$</span></li>
+                <li><div class="intervento-info"><input type="checkbox" class="lista-checkbox cb-meccanico" data-prezzo="7000" data-nome="Entro 4km" onchange="gestioneCheck(this)"><span>Entro 4km &#128667;</span></div><span class="intervento-prezzo">7.000$</span></li>
+                <li><div class="intervento-info"><input type="checkbox" class="lista-checkbox cb-meccanico" data-prezzo="8000" data-nome="Entro 6km" onchange="gestioneCheck(this)"><span>Entro 6km &#128667;</span></div><span class="intervento-prezzo">8.000$</span></li>
+                <li><div class="intervento-info"><input type="checkbox" class="lista-checkbox cb-meccanico" data-prezzo="1200" data-nome="Entro 8km" onchange="gestioneCheck(this)"><span>Entro 8km &#128667;</span></div><span class="intervento-prezzo">12.000$</span></li>
+                <li><div class="intervento-info"><input type="checkbox" class="lista-checkbox cb-meccanico" data-prezzo="17000" data-nome="Fuori Città" onchange="gestioneCheck(this)"><span>Fuori Città &#128667;</span></div><span class="intervento-prezzo">17.000$</span></li>
+            </ul>
+            <div class="subtotale-box" id="subFreni">Subtotale Assistenza Stradale: 0$</div>
+            
+            <div class="categoria-titolo">&#x1F680; [5] Elaborazione Prestazioni (Motore &amp; Turbo)</div>
             <ul class="lista-interventi">
                 <li><div class="intervento-info"><input type="checkbox" class="lista-checkbox cb-meccanico" data-prezzo="2000" data-nome="Modifica Turbo" onchange="gestioneCheck(this)"><span>Modifica Turbo &#x1F3CE;&#xFE0F;&#x1F4A8;</span></div><span class="intervento-prezzo">2.000$</span></li>
 <li>
@@ -1191,7 +1202,7 @@
             </ul>
             <div class="subtotale-box" id="subPotenza">Subtotale Potenza: 0$</div>
 
-            <div class="categoria-titolo">&#x1F6D1; [5] Sicurezza e Controllo (Freni)</div>
+            <div class="categoria-titolo">&#x1F6D1; [6] Sicurezza e Controllo (Freni)</div>
             <ul class="lista-interventi">
                 <li><div class="intervento-info"><input type="checkbox" class="lista-checkbox cb-meccanico" data-prezzo="2000" data-nome="Upgrade Freni Lvl 1" onchange="gestioneCheck(this)"><span>Upgrade Freni LV 1 &#x1F6D1;</span></div><span class="intervento-prezzo">2.000$</span></li>
                 <li><div class="intervento-info"><input type="checkbox" class="lista-checkbox cb-meccanico" data-prezzo="2500" data-nome="Upgrade Freni Lvl 2" onchange="gestioneCheck(this)"><span>Upgrade Freni LV 2 &#x1F6D1;&#x1F525;</span></div><span class="intervento-prezzo">2.500$</span></li>
@@ -1200,7 +1211,7 @@
             </ul>
             <div class="subtotale-box" id="subFreni">Subtotale Freni: 0$</div>
 
-            <div class="categoria-titolo">&#x2699;&#xFE0F; [6] Trasmissioni</div>
+            <div class="categoria-titolo">&#x2699;&#xFE0F; [7] Trasmissioni</div>
             <ul class="lista-interventi"<li>
                 <li><div class="intervento-info"><input type="checkbox" class="lista-checkbox cb-meccanico" data-prezzo="2000" data-nome="Upgrade Trasmissione Lvl 1" onchange="gestioneCheck(this)"><span>Upgrade Trasmissione LV 1 &#x2699;&#xFE0F;&#x1F525;</span></div><span class="intervento-prezzo">2.000$</span>
                 <li><div class="intervento-info"><input type="checkbox" class="lista-checkbox cb-meccanico" data-prezzo="2500" data-nome="Upgrade Trasmissione Lvl 2" onchange="gestioneCheck(this)"><span>Upgrade Trasmissione LV 2 &#x2699;&#xFE0F;&#x1F525;</span></div><span class="intervento-prezzo">2.500$</span></li>
@@ -1209,7 +1220,7 @@
             </ul>
             <div class="subtotale-box" id="subTrasmissioni">Subtotale Trasmissioni: 0$</div>
 
-            <div class="categoria-titolo">&#x1F6D1; [7] Sicurezza e Controllo (Sospensioni)</div>
+            <div class="categoria-titolo">&#x1F6D1; [8] Sicurezza e Controllo (Sospensioni)</div>
             <ul class="lista-interventi">
                 <li><div class="intervento-info"><input type="checkbox" class="lista-checkbox cb-meccanico" data-prezzo="2000" data-nome="Upgrade Sospensioni Lvl 1" onchange="gestioneCheck(this)"><span>Upgrade Sospensioni LV 1 &#x1F6D1;</span></div><span class="intervento-prezzo">2.000$</span></li>
                 <li><div class="intervento-info"><input type="checkbox" class="lista-checkbox cb-meccanico" data-prezzo="2500" data-nome="Upgrade Sospensioni Lvl 2" onchange="gestioneCheck(this)"><span>Upgrade Sospensioni LV 2 &#x1F6D1;&#x1F525;</span></div><span class="intervento-prezzo">2.500$</span></li>
@@ -1218,7 +1229,7 @@
             </ul>
             <div class="subtotale-box" id="subSospensioni">Subtotale Sospensioni: 0$</div>
 
-            <div class="categoria-titolo">&#x1F6E1;&#xFE0F; [8] Corazze (Blindatura)</div>
+            <div class="categoria-titolo">&#x1F6E1;&#xFE0F; [9] Corazze (Blindatura)</div>
             <ul class="lista-interventi">
                 <li><div class="intervento-info"><input type="checkbox" class="lista-checkbox cb-meccanico" data-prezzo="4000" data-nome="Upgrade Corazza Lvl 1" onchange="gestioneCheck(this)"><span>Upgrade Corazza LV 1 &#x1F6E1;&#xFE0F;</span></div><span class="intervento-prezzo">4.000$</span></li>
                 <li><div class="intervento-info"><input type="checkbox" class="lista-checkbox cb-meccanico" data-prezzo="5000" data-nome="Upgrade Corazza Lvl 2" onchange="gestioneCheck(this)"><span>Upgrade Corazza LV 2 &#x1F6E1;&#xFE0F;&#x1F525;</span></div><span class="intervento-prezzo">5.000$</span></li>
