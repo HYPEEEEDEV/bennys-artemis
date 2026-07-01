@@ -1155,7 +1155,7 @@
             <ul class="lista-interventi">
                 <li>
                     <div class="intervento-info">
-                        <input type="checkbox" id="chkFullKit" class="lista-checkbox" data-prezzo="25000" data-nome="Full Kit Meccanica" onchange="gestioneFullKit(this)">
+                        <input type="checkbox" id="chkFullKit25" class="lista-checkbox" data-prezzo="25000" data-nome="Full Kit Meccanica" onchange="gestioneFullKit(this)">
                         <div>
                             <span class="intervento-nome" style="display: block;">Full Kit Meccanica &#x1F4E6;&#x1F451;</span>
                             <span style="font-size: 12px; color: #aaaaaa; display: block;">(Meccanica al massimo livello + Riparazione + Pulizia: 25.000$)</span>
@@ -1166,7 +1166,7 @@
                 </li>
                 <li>
                     <div class="intervento-info">
-                        <input type="checkbox" id="chkFullKit" class="lista-checkbox" data-prezzo="20000" data-nome="Full Kit Meccanica x Dipendenti" onchange="gestioneFullKit(this)">
+                        <input type="checkbox" id="chkFullKitDipendenti" class="lista-checkbox" data-prezzo="20000" data-nome="Full Kit Meccanica x Dipendenti" onchange="gestioneFullKit(this)">
                         <div>
                             <span class="intervento-nome" style="display: block;">Full Kit Meccanica x Dipendenti &#129489;&#8205;&#128295;</span>
                             <span style="font-size: 12px; color: #aaaaaa; display: block;">(Meccanica al massimo livello + Riparazione + Pulizia: 20.000$)</span>
@@ -1193,41 +1193,41 @@
             <ul class="lista-interventi">
                 <li>
                     <div class="intervento-info">
-                        <input type="checkbox" id="chkRiparazione" class="lista-checkbox" data-prezzo="5000" data-nome="Entro 2km" onchange="gestioneCheck(this)">
+                        <input type="checkbox" id="chkAssist2km" class="lista-checkbox" data-prezzo="5000" data-nome="Entro 2km" onchange="gestioneCheck(this)">
                         <span class="intervento-nome">Entro 2km &#128667;</span>
                     </div>
                     <span class="intervento-prezzo">5.000$</span>
                 </li>
                 <li>
                     <div class="intervento-info">
-                        <input type="checkbox" id="chkLavaggio" class="lista-checkbox" data-prezzo="7000" data-nome="Entro 4km" onchange="gestioneCheck(this)">
+                        <input type="checkbox" id="chkAssist4km" class="lista-checkbox" data-prezzo="7000" data-nome="Entro 4km" onchange="gestioneCheck(this)">
                         <span class="intervento-nome">Entro 4km &#128667;</span>
                     </div>
                     <span class="intervento-prezzo">7.000$</span>
                 </li>
                 <li>
                     <div class="intervento-info">
-                        <input type="checkbox" id="chkLavaggio" class="lista-checkbox" data-prezzo="8000" data-nome="Entro 6km" onchange="gestioneCheck(this)">
+                        <input type="checkbox" id="chkAssist6km" class="lista-checkbox" data-prezzo="8000" data-nome="Entro 6km" onchange="gestioneCheck(this)">
                         <span class="intervento-nome">Entro 6km &#128667;</span>
                     </div>
                     <span class="intervento-prezzo">8.000$</span>
                 </li>
                 <li>
                     <div class="intervento-info">
-                        <input type="checkbox" id="chkLavaggio" class="lista-checkbox" data-prezzo="12000" data-nome="Entro 8km" onchange="gestioneCheck(this)">
+                        <input type="checkbox" id="chkAssist8km" class="lista-checkbox" data-prezzo="12000" data-nome="Entro 8km" onchange="gestioneCheck(this)">
                         <span class="intervento-nome">Entro 8km &#128667;</span>
                     </div>
                     <span class="intervento-prezzo">12.000$</span>
                 </li>
                 <li>
                     <div class="intervento-info">
-                        <input type="checkbox" id="chkLavaggio" class="lista-checkbox" data-prezzo="17000" data-nome="Fuori Città" onchange="gestioneCheck(this)">
+                        <input type="checkbox" id="chkAssistFuoriCitta" class="lista-checkbox" data-prezzo="17000" data-nome="Fuori Città" onchange="gestioneCheck(this)">
                         <span class="intervento-nome">Fuori Città &#128667;</span>
                     </div>
                     <span class="intervento-prezzo">17.000$</span>
                 </li>
             </ul>
-            <div class="subtotale-box" id="subAssistenza Stradale">Subtotale Assistenza Stradale: 0$</div>
+            <div class="subtotale-box" id="subAssistenzaStradale">Subtotale Assistenza Stradale: 0$</div>
         </div>
 
                     
@@ -1351,20 +1351,36 @@
         let riga = el.closest('li');
         let blocchiMeccanicaVincolati = document.querySelectorAll('.blocco-meccanico-vincolato');
         let checkboxMeccanici = document.querySelectorAll('.cb-meccanico');
+        let chkFullKit25 = document.getElementById('chkFullKit25');
+        let chkFullKitDipendenti = document.getElementById('chkFullKitDipendenti');
         if (el.checked) {
             riga.classList.add('riga-attiva');
+            // Mutua esclusione tra i due Full Kit (non possono essere attivi insieme)
+            if (el.id === 'chkFullKit25' && chkFullKitDipendenti && chkFullKitDipendenti.checked) {
+                chkFullKitDipendenti.checked = false;
+                chkFullKitDipendenti.closest('li').classList.remove('riga-attiva');
+            }
+            if (el.id === 'chkFullKitDipendenti' && chkFullKit25 && chkFullKit25.checked) {
+                chkFullKit25.checked = false;
+                chkFullKit25.closest('li').classList.remove('riga-attiva');
+            }
             blocchiMeccanicaVincolati.forEach(blocco => { blocco.classList.add('categoria-disabilitata'); });
             checkboxMeccanici.forEach(chk => { chk.checked = false; chk.disabled = true; chk.closest('li').classList.remove('riga-attiva'); });
         } else {
             riga.classList.remove('riga-attiva');
-            blocchiMeccanicaVincolati.forEach(blocco => { blocco.classList.remove('categoria-disabilitata'); });
-            checkboxMeccanici.forEach(chk => { chk.disabled = false; });
+            let altroFullKitAttivo = (chkFullKit25 && chkFullKit25.checked) || (chkFullKitDipendenti && chkFullKitDipendenti.checked);
+            if (!altroFullKitAttivo) {
+                blocchiMeccanicaVincolati.forEach(blocco => { blocco.classList.remove('categoria-disabilitata'); });
+                checkboxMeccanici.forEach(chk => { chk.disabled = false; });
+            }
         }
         aggiornaTotale();
     }
     function aggiornaTotale() {
         let totale = 0;
-        let fullKitChecked = document.getElementById('chkFullKit').checked;
+        let chkFullKit25 = document.getElementById('chkFullKit25');
+        let chkFullKitDipendenti = document.getElementById('chkFullKitDipendenti');
+        let fullKitChecked = (chkFullKit25 && chkFullKit25.checked) || (chkFullKitDipendenti && chkFullKitDipendenti.checked);
         let subRipristino = 0;
         if (!fullKitChecked) {
             let chkRip = document.getElementById('chkRiparazione');
@@ -1397,7 +1413,8 @@
         subEstetica += (qtaEstetica * 1000);
         document.getElementById('subEstetica').innerText = "Subtotale Estetica: " + subEstetica.toLocaleString() + "$";
         let subFullKit = 0;
-        if (fullKitChecked) { subFullKit += parseInt(document.getElementById('chkFullKit').dataset.prezzo); }
+        if (chkFullKit25 && chkFullKit25.checked) subFullKit += parseInt(chkFullKit25.dataset.prezzo) || 0;
+        if (chkFullKitDipendenti && chkFullKitDipendenti.checked) subFullKit += parseInt(chkFullKitDipendenti.dataset.prezzo) || 0;
         document.getElementById('subFullKit').innerText = "Subtotale Full Kit Meccanica: " + subFullKit.toLocaleString() + "$";
         let subPotenza = 0, subFreni = 0, subTrasmissioni = 0, subSospensioni = 0, subCorazze = 0;
         if (!fullKitChecked) {
@@ -1416,7 +1433,16 @@
         document.getElementById('subTrasmissioni').innerText = "Subtotale Trasmissioni: " + subTrasmissioni.toLocaleString() + "$";
         document.getElementById('subSospensioni').innerText = "Subtotale Sospensioni: " + subSospensioni.toLocaleString() + "$";
         document.getElementById('subCorazze').innerText = "Subtotale Corazze: " + subCorazze.toLocaleString() + "$";
-        totale = subRipristino + subKitRipristino + subEstetica + subFullKit + subPotenza + subFreni + subTrasmissioni + subSospensioni + subCorazze;
+
+        // [4] Subtotale Assistenza Stradale
+        let subAssistenza = 0;
+        ['chkAssist2km', 'chkAssist4km', 'chkAssist6km', 'chkAssist8km', 'chkAssistFuoriCitta'].forEach(id => {
+            let chk = document.getElementById(id);
+            if (chk && chk.checked) subAssistenza += parseInt(chk.dataset.prezzo) || 0;
+        });
+        document.getElementById('subAssistenzaStradale').innerText = "Subtotale Assistenza Stradale: " + subAssistenza.toLocaleString() + "$";
+
+        totale = subRipristino + subKitRipristino + subEstetica + subFullKit + subPotenza + subFreni + subTrasmissioni + subSospensioni + subCorazze + subAssistenza;
         document.getElementById('prezzoTotale').innerText = totale.toLocaleString() + "$";
         let gradoSelezionato = parseFloat(document.getElementById('finGrado').value) || 0;
         let quotaDipendente = Math.round(totale * gradoSelezionato);
@@ -1426,10 +1452,15 @@
     }
     function resetLavoro() {
         // Sblocca eventuale Full Kit (riabilita i checkbox meccanici vincolati)
-        let chkFullKit = document.getElementById('chkFullKit');
-        if (chkFullKit && chkFullKit.checked) {
-            chkFullKit.checked = false;
-            gestioneFullKit(chkFullKit);
+        let chkFullKit25 = document.getElementById('chkFullKit25');
+        if (chkFullKit25 && chkFullKit25.checked) {
+            chkFullKit25.checked = false;
+            gestioneFullKit(chkFullKit25);
+        }
+        let chkFullKitDipendenti = document.getElementById('chkFullKitDipendenti');
+        if (chkFullKitDipendenti && chkFullKitDipendenti.checked) {
+            chkFullKitDipendenti.checked = false;
+            gestioneFullKit(chkFullKitDipendenti);
         }
         // Deseleziona tutti i checkbox e rimuove l'evidenziazione della riga
         document.querySelectorAll('.lista-checkbox').forEach(chk => {
@@ -1489,8 +1520,16 @@
         if (qtaEst > 0) modifiche.push("• Componenti Estetiche x" + qtaEst + " [ " + (qtaEst * 1000).toLocaleString() + "$ ]");
 
         // Full Kit
-        let chkFullKit = document.getElementById('chkFullKit');
-        if (chkFullKit && chkFullKit.checked) modifiche.push("• Full Kit Meccanica [ " + parseInt(chkFullKit.dataset.prezzo).toLocaleString() + "$ ]");
+        let chkFullKit25 = document.getElementById('chkFullKit25');
+        if (chkFullKit25 && chkFullKit25.checked) modifiche.push("• " + chkFullKit25.dataset.nome + " [ " + parseInt(chkFullKit25.dataset.prezzo).toLocaleString() + "$ ]");
+        let chkFullKitDipendenti = document.getElementById('chkFullKitDipendenti');
+        if (chkFullKitDipendenti && chkFullKitDipendenti.checked) modifiche.push("• " + chkFullKitDipendenti.dataset.nome + " [ " + parseInt(chkFullKitDipendenti.dataset.prezzo).toLocaleString() + "$ ]");
+
+        // Assistenza Stradale
+        ['chkAssist2km', 'chkAssist4km', 'chkAssist6km', 'chkAssist8km', 'chkAssistFuoriCitta'].forEach(id => {
+            let chk = document.getElementById(id);
+            if (chk && chk.checked) modifiche.push("• " + chk.dataset.nome + " [ " + parseInt(chk.dataset.prezzo).toLocaleString() + "$ ]");
+        });
 
         // Tutti gli altri checkbox meccanici (potenza, freni, trasmissioni, sospensioni, corazze)
         document.querySelectorAll('.lista-checkbox.cb-meccanico:checked').forEach(chk => {
