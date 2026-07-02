@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ride Out Custom's x Artemis - Gestionale Automatico 2026</title>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@400;600;700&family=Luckiest+Guy&display=swap" rel="stylesheet">
     <style>
         body {
             background: #050505;
@@ -35,17 +35,17 @@
             pointer-events: none;
             z-index: 0;
             background-image:
-                radial-gradient(1px 1px at 10% 15%, rgba(231,76,60,0.6) 0%, transparent 100%),
+                radial-gradient(1px 1px at 10% 15%, rgba(245,197,24,0.6) 0%, transparent 100%),
                 radial-gradient(1px 1px at 25% 40%, rgba(255,255,255,0.3) 0%, transparent 100%),
-                radial-gradient(1.5px 1.5px at 40% 10%, rgba(231,76,60,0.5) 0%, transparent 100%),
+                radial-gradient(1.5px 1.5px at 40% 10%, rgba(245,197,24,0.5) 0%, transparent 100%),
                 radial-gradient(1px 1px at 55% 60%, rgba(255,255,255,0.2) 0%, transparent 100%),
-                radial-gradient(1.5px 1.5px at 70% 25%, rgba(231,76,60,0.4) 0%, transparent 100%),
+                radial-gradient(1.5px 1.5px at 70% 25%, rgba(245,197,24,0.4) 0%, transparent 100%),
                 radial-gradient(1px 1px at 85% 70%, rgba(255,255,255,0.3) 0%, transparent 100%),
-                radial-gradient(1px 1px at 15% 80%, rgba(231,76,60,0.5) 0%, transparent 100%),
+                radial-gradient(1px 1px at 15% 80%, rgba(245,197,24,0.5) 0%, transparent 100%),
                 radial-gradient(1.5px 1.5px at 90% 45%, rgba(255,255,255,0.2) 0%, transparent 100%),
-                radial-gradient(1px 1px at 45% 85%, rgba(231,76,60,0.3) 0%, transparent 100%),
+                radial-gradient(1px 1px at 45% 85%, rgba(245,197,24,0.3) 0%, transparent 100%),
                 radial-gradient(1px 1px at 65% 5%, rgba(255,255,255,0.4) 0%, transparent 100%),
-                radial-gradient(1.5px 1.5px at 30% 55%, rgba(231,76,60,0.35) 0%, transparent 100%),
+                radial-gradient(1.5px 1.5px at 30% 55%, rgba(245,197,24,0.35) 0%, transparent 100%),
                 radial-gradient(1px 1px at 78% 88%, rgba(255,255,255,0.25) 0%, transparent 100%);
             animation: scintillio 4s ease-in-out infinite alternate, rotazioneGradienti 20s linear infinite;
         }
@@ -58,8 +58,8 @@
             pointer-events: none;
             z-index: 0;
             background: 
-                radial-gradient(ellipse at 30% 30%, rgba(180, 10, 10, 0.08) 0%, transparent 40%),
-                radial-gradient(ellipse at 70% 70%, rgba(231, 76, 60, 0.06) 0%, transparent 40%);
+                radial-gradient(ellipse at 30% 30%, rgba(180,150,10,0.08) 0%, transparent 40%),
+                radial-gradient(ellipse at 70% 70%, rgba(245,197,24,0.06) 0%, transparent 40%);
             animation: nebulosa 15s ease-in-out infinite alternate;
         }
 
@@ -88,7 +88,7 @@
             left: 0;
             width: 100%;
             height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(231,76,60,0.8), transparent);
+            background: linear-gradient(90deg, transparent, rgba(245,197,24,0.8), transparent);
             pointer-events: none;
             z-index: 0;
             animation: laserScan 8s linear infinite;
@@ -117,12 +117,12 @@
             100% { background-position: 0% 50%; }
         }
         @keyframes containerGlow {
-            0% { box-shadow: 0 0 20px rgba(231, 76, 60, 0.15); }
-            100% { box-shadow: 0 0 35px rgba(231, 76, 60, 0.35); }
+            0% { box-shadow: 0 0 20px rgba(245,197,24,0.15); }
+            100% { box-shadow: 0 0 35px rgba(245,197,24,0.35); }
         }
         header {
             text-align: center;
-            border-bottom: 2px solid #2c1a1a;
+            border-bottom: 2px solid #3a2f0a;
             padding-bottom: 35px;
             margin-bottom: 25px;
         }
@@ -133,10 +133,10 @@
             letter-spacing: 2px;
             margin: 0;
             color: #ffffff;
-            text-shadow: 0 0 15px rgba(231, 76, 60, 0.6), 0 0 30px rgba(231, 76, 60, 0.3);
+            text-shadow: 0 0 15px rgba(245,197,24,0.6), 0 0 30px rgba(245,197,24,0.3);
             font-family: 'Impact', 'Arial Black', sans-serif;
         }
-        .titolo-gestionale-testo span { color: #e74c3c; }
+        .titolo-gestionale-testo span { color: #f5c518; }
         header p {
             color: #cccccc;
             font-size: 14px;
@@ -146,20 +146,20 @@
         }
         .sezione-superiore-finanze {
             background-color: rgba(18, 12, 12, 0.85);
-            border: 2px solid #2b1515;
+            border: 2px solid #3a2f0a;
             border-radius: 12px;
             padding: 25px;
             margin-bottom: 30px;
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
         }
         .sezione-superiore-finanze h3 {
-            color: #e74c3c;
+            color: #f5c518;
             margin-top: 0;
             margin-bottom: 15px;
             text-transform: uppercase;
             font-size: 16px;
             letter-spacing: 1px;
-            border-bottom: 1px solid #251212;
+            border-bottom: 1px solid #3a2f0a;
             padding-bottom: 8px;
         }
         .griglia-form {
@@ -176,11 +176,11 @@
             font-weight: bold;
             text-transform: uppercase;
             letter-spacing: 1px;
-            color: #e74c3c;
+            color: #f5c518;
         }
         .campo-form input, .campo-form select {
             background-color: rgba(10, 5, 5, 0.9);
-            border: 2px solid #c0392b;
+            border: 2px solid #8a6a10;
             border-radius: 6px;
             color: #ffffff;
             padding: 10px;
@@ -189,13 +189,13 @@
             transition: all 0.2s;
         }
         .campo-form input:focus, .campo-form select:focus {
-            border-color: #e74c3c;
-            box-shadow: 0 0 10px rgba(231, 76, 60, 0.4);
+            border-color: #f5c518;
+            box-shadow: 0 0 10px rgba(245,197,24,0.4);
         }
         .categoria-titolo {
             font-size: 30px;
             color: #ffffff;
-            border-left: 5px solid #e74c3c;
+            border-left: 5px solid #f5c518;
             padding-left: 14px;
             margin-top: 55px;
             margin-bottom: 18px;
@@ -208,7 +208,7 @@
         .lista-interventi { list-style: none; padding: 0; margin: 0 0 12px 0; }
         .lista-interventi li {
             background-color: rgba(20, 20, 20, 0.75);
-            border: 1px solid #2b1515;
+            border: 1px solid #3a2f0a;
             border-radius: 6px;
             padding: 16px 20px;
             margin-bottom: 8px;
@@ -219,7 +219,7 @@
         }
         .lista-interventi li:hover {
             background-color: rgba(30, 20, 20, 0.9);
-            border-color: #551a1a;
+            border-color: #3a2f0a;
             transform: translateX(5px);
         }
         .lista-interventi li.riga-attiva {
@@ -231,14 +231,14 @@
             animation: continuoLampeggioRosso 2s ease-in-out infinite;
         }
         @keyframes continuoLampeggioRosso {
-            0%, 100% { border-color: #2b1515; box-shadow: none; background-color: rgba(20, 20, 20, 0.75); }
-            50% { border-color: #e74c3c; box-shadow: 0 0 15px rgba(231, 76, 60, 0.3); background-color: rgba(40, 15, 15, 0.85); }
+            0%, 100% { border-color: #3a2f0a; box-shadow: none; background-color: rgba(20, 20, 20, 0.75); }
+            50% { border-color: #f5c518; box-shadow: 0 0 15px rgba(245,197,24,0.3); background-color: rgba(40, 15, 15, 0.85); }
         }
         .intervento-info { display: flex; align-items: center; gap: 15px; width: 70%; }
         .lista-checkbox {
             -webkit-appearance: none; appearance: none;
             width: 22px; height: 22px;
-            border: 2px solid #e74c3c;
+            border: 2px solid #f5c518;
             border-radius: 5px;
             background-color: rgba(10, 5, 5, 0.8);
             cursor: pointer; position: relative;
@@ -251,7 +251,7 @@
         .input-quantita {
             width: 50px;
             background-color: rgba(10, 5, 5, 0.9);
-            border: 2px solid #e74c3c;
+            border: 2px solid #f5c518;
             border-radius: 5px;
             color: #ffffff;
             padding: 4px;
@@ -263,9 +263,9 @@
         .intervento-nome { font-weight: 600; color: #eeeeee; font-family: 'Barlow Condensed', sans-serif; font-size: 16px; letter-spacing: 1px; }
         .intervento-prezzo { color: #ffffff; font-weight: 700; font-size: 20px; text-align: right; width: 30%; font-family: 'Barlow Condensed', sans-serif; letter-spacing: 2px; }
         .btn-link-interno {
-            background-color: rgba(231, 76, 60, 0.15);
-            color: #e74c3c;
-            border: 1px solid #e74c3c;
+            background-color: rgba(245,197,24,0.15);
+            color: #f5c518;
+            border: 1px solid #f5c518;
             border-radius: 4px;
             padding: 4px 10px;
             font-size: 11px;
@@ -277,15 +277,15 @@
             vertical-align: middle;
             transition: all 0.2s ease;
         }
-        .btn-link-interno:hover { background-color: #e74c3c; color: #ffffff; box-shadow: 0 0 8px rgba(231, 76, 60, 0.5); }
+        .btn-link-interno:hover { background-color: #f5c518; color: #ffffff; box-shadow: 0 0 8px rgba(245,197,24,0.5); }
         .subtotale-box {
-            background-color: rgba(231, 76, 60, 0.04);
-            border: 1px solid rgba(231, 76, 60, 0.3);
+            background-color: rgba(245,197,24,0.04);
+            border: 1px solid rgba(245,197,24,0.3);
             border-radius: 6px;
             padding: 12px 20px;
             text-align: right;
             font-weight: 700;
-            color: #e74c3c;
+            color: #f5c518;
             text-transform: uppercase;
             letter-spacing: 2px;
             margin-bottom: 35px;
@@ -335,7 +335,7 @@
             pointer-events: none;
         }
 
-        /* Linea base verde fissa */
+        /* Linea base bianca fissa */
         .linea-fulmine::before {
             content: '';
             position: absolute;
@@ -344,16 +344,16 @@
             height: 100%;
             background: linear-gradient(90deg,
                 transparent 0%,
-                rgba(46,204,113,0.3) 5%,
-                #2ecc71 20%,
-                #27ae60 50%,
-                #2ecc71 80%,
-                rgba(46,204,113,0.3) 95%,
+                rgba(255,255,255,0.3) 5%,
+                #ffffff 20%,
+                #f5c518 50%,
+                #ffffff 80%,
+                rgba(255,255,255,0.3) 95%,
                 transparent 100%);
             box-shadow:
-                0 0 6px rgba(46,204,113,0.8),
-                0 0 15px rgba(46,204,113,0.5),
-                0 0 30px rgba(46,204,113,0.3);
+                0 0 6px rgba(255,255,255,0.8),
+                0 0 15px rgba(255,255,255,0.5),
+                0 0 30px rgba(255,255,255,0.3);
             animation: lineaPulse 2s ease-in-out infinite alternate;
         }
 
@@ -372,27 +372,27 @@
         .v-azienda { color: #2ecc71; }
         
         .btn-discord { color: #ffffff; border: none; border-radius: 6px; padding: 14px 32px; font-size: 15px; font-family: 'Impact', Arial, sans-serif; text-transform: uppercase; letter-spacing: 1.5px; cursor: pointer; transition: all 0.2s ease; }
-        .btn-generico-lavoro { background: linear-gradient(135deg, #e74c3c, #962d22); box-shadow: 0 4px 0 #5e1c14, 0 0 15px rgba(231, 76, 60, 0.3); border: 1px solid rgba(255,255,255,0.1); }
-        .btn-generico-lavoro:hover { background: linear-gradient(135deg, #ff5a4a, #ab3427); transform: translateY(-2px); box-shadow: 0 6px 0 #5e1c14, 0 0 20px rgba(231, 76, 60, 0.5); }
-        .btn-generico-lavoro:active { transform: translateY(2px); box-shadow: 0 1px 0 #5e1c14, 0 0 10px rgba(231, 76, 60, 0.4); }
+        .btn-generico-lavoro { background: linear-gradient(135deg, #f5c518, #6b4e00); box-shadow: 0 4px 0 #6b4e00, 0 0 15px rgba(245,197,24,0.3); border: 1px solid rgba(255,255,255,0.1); }
+        .btn-generico-lavoro:hover { background: linear-gradient(135deg, #ffe066, #8a6a10); transform: translateY(-2px); box-shadow: 0 6px 0 #6b4e00, 0 0 20px rgba(245,197,24,0.5); }
+        .btn-generico-lavoro:active { transform: translateY(2px); box-shadow: 0 1px 0 #6b4e00, 0 0 10px rgba(245,197,24,0.4); }
         .regolamento-box {
             background-color: rgba(10, 5, 5, 0.45);
-            border: 1px solid rgba(231,76,60,0.3);
-            border-left: 5px solid #e74c3c;
+            border: 1px solid rgba(245,197,24,0.3);
+            border-left: 5px solid #f5c518;
             border-radius: 10px;
             padding: 24px 28px;
             margin: 30px 0;
             backdrop-filter: blur(2px);
         }
         .regolamento-box h3 {
-            color: #e74c3c;
+            color: #f5c518;
             margin-top: 0;
             margin-bottom: 14px;
             text-transform: uppercase;
             font-size: 22px;
             font-family: 'Bebas Neue', cursive;
             letter-spacing: 3px;
-            border-bottom: 1px solid rgba(231,76,60,0.2);
+            border-bottom: 1px solid rgba(245,197,24,0.2);
             padding-bottom: 10px;
         }
         .regolamento-box p {
@@ -417,19 +417,19 @@
             line-height: 1.5;
         }
         .regolamento-box strong {
-            color: #e74c3c;
+            color: #f5c518;
             font-weight: 700;
         }
 
         /* ===== LAMPEGGIO CLICK (solo su trigger) ===== */
         @keyframes lampeggioClick {
-            0%   { border-color: #2b1515; box-shadow: none; background-color: rgba(20,20,20,0.75); }
-            15%  { border-color: #ff3333; box-shadow: 0 0 25px rgba(231, 76, 60, 0.8), 0 0 50px rgba(231, 76, 60, 0.4); background-color: rgba(0,40,25,0.9); }
-            30%  { border-color: #2b1515; box-shadow: none; background-color: rgba(20,20,20,0.75); }
-            50%  { border-color: #ff3333; box-shadow: 0 0 20px rgba(231, 76, 60, 0.6); background-color: rgba(0,35,20,0.85); }
-            70%  { border-color: #2b1515; box-shadow: none; background-color: rgba(20,20,20,0.75); }
-            85%  { border-color: #ff3333; box-shadow: 0 0 15px rgba(231, 76, 60, 0.5); background-color: rgba(0,30,18,0.8); }
-            100% { border-color: #2b1515; box-shadow: none; background-color: rgba(20,20,20,0.75); }
+            0%   { border-color: #3a2f0a; box-shadow: none; background-color: rgba(20,20,20,0.75); }
+            15%  { border-color: #ffe066; box-shadow: 0 0 25px rgba(245,197,24,0.8), 0 0 50px rgba(245,197,24,0.4); background-color: rgba(0,40,25,0.9); }
+            30%  { border-color: #3a2f0a; box-shadow: none; background-color: rgba(20,20,20,0.75); }
+            50%  { border-color: #ffe066; box-shadow: 0 0 20px rgba(245,197,24,0.6); background-color: rgba(0,35,20,0.85); }
+            70%  { border-color: #3a2f0a; box-shadow: none; background-color: rgba(20,20,20,0.75); }
+            85%  { border-color: #ffe066; box-shadow: 0 0 15px rgba(245,197,24,0.5); background-color: rgba(0,30,18,0.8); }
+            100% { border-color: #3a2f0a; box-shadow: none; background-color: rgba(20,20,20,0.75); }
         }
         .lampeggio-click {
             animation: lampeggioClick 3s ease-in-out !important;
@@ -439,14 +439,14 @@
         .regolamento-cyber {
             position: relative;
             background: linear-gradient(135deg, rgba(10,3,3,0.97) 0%, rgba(5,10,20,0.95) 50%, rgba(12,4,4,0.97) 100%);
-            border: 1px solid rgba(231,76,60,0.25);
+            border: 1px solid rgba(245,197,24,0.25);
             border-radius: 4px;
             padding: 30px 32px 28px 32px;
             margin: 30px 0;
             overflow: hidden;
             box-shadow:
-                0 0 0 1px rgba(231,76,60,0.08),
-                inset 0 0 40px rgba(231,76,60,0.04),
+                0 0 0 1px rgba(245,197,24,0.08),
+                inset 0 0 40px rgba(245,197,24,0.04),
                 0 8px 40px rgba(0,0,0,0.6);
         }
 
@@ -460,8 +460,8 @@
                 0deg,
                 transparent,
                 transparent 3px,
-                rgba(231,76,60,0.015) 3px,
-                rgba(231,76,60,0.015) 4px
+                rgba(245,197,24,0.015) 3px,
+                rgba(245,197,24,0.015) 4px
             );
             z-index: 0;
         }
@@ -472,10 +472,10 @@
             width: 18px; height: 18px;
             z-index: 2;
         }
-        .reg-cyber-corner-tl { top: 0; left: 0; border-top: 2px solid #e74c3c; border-left: 2px solid #e74c3c; }
-        .reg-cyber-corner-tr { top: 0; right: 0; border-top: 2px solid #e74c3c; border-right: 2px solid #e74c3c; }
-        .reg-cyber-corner-bl { bottom: 0; left: 0; border-bottom: 2px solid #e74c3c; border-left: 2px solid #e74c3c; }
-        .reg-cyber-corner-br { bottom: 0; right: 0; border-bottom: 2px solid #e74c3c; border-right: 2px solid #e74c3c; }
+        .reg-cyber-corner-tl { top: 0; left: 0; border-top: 2px solid #f5c518; border-left: 2px solid #f5c518; }
+        .reg-cyber-corner-tr { top: 0; right: 0; border-top: 2px solid #f5c518; border-right: 2px solid #f5c518; }
+        .reg-cyber-corner-bl { bottom: 0; left: 0; border-bottom: 2px solid #f5c518; border-left: 2px solid #f5c518; }
+        .reg-cyber-corner-br { bottom: 0; right: 0; border-bottom: 2px solid #f5c518; border-right: 2px solid #f5c518; }
 
         /* Luce scorrevole sul bordo superiore */
         .regolamento-cyber::before {
@@ -483,7 +483,7 @@
             position: absolute;
             top: 0; left: -30%;
             width: 30%; height: 2px;
-            background: linear-gradient(90deg, transparent, #e74c3c, #ffffff, #e74c3c, transparent);
+            background: linear-gradient(90deg, transparent, #f5c518, #ffffff, #f5c518, transparent);
             animation: cyberScan 3.5s ease-in-out infinite;
             z-index: 3;
         }
@@ -493,7 +493,7 @@
             position: absolute;
             top: -60px; right: -60px;
             width: 180px; height: 180px;
-            background: radial-gradient(circle, rgba(231,76,60,0.08) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(245,197,24,0.08) 0%, transparent 70%);
             animation: cyberGlow 4s ease-in-out infinite alternate;
             pointer-events: none;
             z-index: 0;
@@ -521,27 +521,27 @@
             font-family: 'Bebas Neue', cursive;
             font-size: 20px;
             letter-spacing: 4px;
-            color: #e74c3c;
-            text-shadow: 0 0 10px rgba(231,76,60,0.8), 0 0 25px rgba(231,76,60,0.4);
+            color: #f5c518;
+            text-shadow: 0 0 10px rgba(245,197,24,0.8), 0 0 25px rgba(245,197,24,0.4);
             text-transform: uppercase;
         }
         .reg-cyber-icon {
             font-size: 22px;
-            color: #e74c3c;
+            color: #f5c518;
             animation: iconSpin 8s linear infinite;
             display: inline-block;
-            text-shadow: 0 0 12px rgba(231,76,60,1);
+            text-shadow: 0 0 12px rgba(245,197,24,1);
         }
         @keyframes iconSpin {
             0%   { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
         .reg-cyber-blink {
-            color: #ff3333;
+            color: #ffe066;
             font-weight: 900;
             font-size: 22px;
             animation: blink 0.8s step-end infinite;
-            text-shadow: 0 0 10px rgba(231, 76, 60, 0.9);
+            text-shadow: 0 0 10px rgba(245,197,24,0.9);
         }
         @keyframes blink { 50% { opacity: 0; } }
 
@@ -549,9 +549,9 @@
         .reg-cyber-line {
             width: 100%;
             height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(231,76,60,0.6), rgba(231, 76, 60, 0.4), rgba(231,76,60,0.6), transparent);
+            background: linear-gradient(90deg, transparent, rgba(245,197,24,0.6), rgba(245,197,24,0.4), rgba(245,197,24,0.6), transparent);
             margin-bottom: 16px;
-            box-shadow: 0 0 6px rgba(231,76,60,0.3);
+            box-shadow: 0 0 6px rgba(245,197,24,0.3);
         }
 
         /* Subtitolo */
@@ -559,7 +559,7 @@
             font-family: 'Barlow Condensed', sans-serif;
             font-size: 13px;
             letter-spacing: 3px;
-            color: rgba(231,76,60,0.7);
+            color: rgba(245,197,24,0.7);
             text-transform: uppercase;
             margin: 0 0 14px 0;
         }
@@ -575,9 +575,9 @@
             align-items: flex-start;
             gap: 10px;
             padding: 10px 14px;
-            background: rgba(231,76,60,0.03);
-            border: 1px solid rgba(231,76,60,0.1);
-            border-left: 3px solid rgba(231,76,60,0.5);
+            background: rgba(245,197,24,0.03);
+            border: 1px solid rgba(245,197,24,0.1);
+            border-left: 3px solid rgba(245,197,24,0.5);
             border-radius: 2px;
             margin-bottom: 8px;
             font-family: 'Barlow Condensed', sans-serif;
@@ -588,21 +588,21 @@
             line-height: 1.5;
         }
         .reg-cyber-bullet {
-            color: #e74c3c;
+            color: #f5c518;
             font-size: 16px;
             flex-shrink: 0;
             margin-top: 1px;
-            text-shadow: 0 0 8px rgba(231,76,60,0.8);
+            text-shadow: 0 0 8px rgba(245,197,24,0.8);
         }
         .reg-cyber-keyword {
-            color: #e74c3c;
+            color: #f5c518;
             font-weight: 700;
-            text-shadow: 0 0 8px rgba(231,76,60,0.5);
+            text-shadow: 0 0 8px rgba(245,197,24,0.5);
         }
         .reg-cyber-hl {
-            color: #ff3333;
+            color: #ffe066;
             font-weight: 700;
-            text-shadow: 0 0 8px rgba(231, 76, 60, 0.6);
+            text-shadow: 0 0 8px rgba(245,197,24,0.6);
         }
 
         /* ===== BOTTONE CYBER VAI A COMPONENTI ===== */
@@ -612,7 +612,7 @@
             gap: 10px;
             padding: 13px 24px;
             background: linear-gradient(135deg, rgba(15,5,5,0.95), rgba(20,5,5,0.98));
-            border: 1px solid rgba(231,76,60,0.4);
+            border: 1px solid rgba(245,197,24,0.4);
             border-radius: 3px;
             cursor: pointer;
             position: relative;
@@ -622,7 +622,7 @@
             text-transform: uppercase;
             letter-spacing: 2px;
             outline: none;
-            box-shadow: 0 0 15px rgba(231,76,60,0.15), inset 0 0 20px rgba(231,76,60,0.03);
+            box-shadow: 0 0 15px rgba(245,197,24,0.15), inset 0 0 20px rgba(245,197,24,0.03);
         }
         /* Luce scorrevole interna */
         .btn-cyber-vai::before {
@@ -630,7 +630,7 @@
             position: absolute;
             top: 0; left: -100%;
             width: 60%; height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(231,76,60,0.15), transparent);
+            background: linear-gradient(90deg, transparent, rgba(245,197,24,0.15), transparent);
             animation: btnSweep 2.5s ease-in-out infinite;
         }
         @keyframes btnSweep {
@@ -638,44 +638,44 @@
             100% { left: 160%; }
         }
         .btn-cyber-vai:hover {
-            border-color: rgba(231, 76, 60, 0.7);
-            box-shadow: 0 0 25px rgba(231,76,60,0.35), 0 0 50px rgba(231,76,60,0.15), inset 0 0 20px rgba(231,76,60,0.06);
+            border-color: rgba(245,197,24,0.7);
+            box-shadow: 0 0 25px rgba(245,197,24,0.35), 0 0 50px rgba(245,197,24,0.15), inset 0 0 20px rgba(245,197,24,0.06);
             transform: translateY(-2px);
             background: linear-gradient(135deg, rgba(18,5,5,0.98), rgba(22,5,5,1));
         }
         .btn-cyber-vai:active { transform: translateY(1px); }
 
         .btn-cyber-bracket {
-            color: rgba(231,76,60,0.5);
+            color: rgba(245,197,24,0.5);
             font-size: 22px;
             font-weight: 400;
         }
         .btn-cyber-icon {
             font-size: 20px;
-            color: #e74c3c;
+            color: #f5c518;
             animation: cogSpin 4s linear infinite;
             display: inline-block;
-            text-shadow: 0 0 10px rgba(231,76,60,0.9);
+            text-shadow: 0 0 10px rgba(245,197,24,0.9);
         }
         @keyframes cogSpin { 100% { transform: rotate(360deg); } }
         .btn-cyber-label {
             font-size: 17px;
-            color: #e74c3c;
-            text-shadow: 0 0 8px rgba(231,76,60,0.7);
+            color: #f5c518;
+            text-shadow: 0 0 8px rgba(245,197,24,0.7);
             letter-spacing: 3px;
         }
         .btn-cyber-arrow {
-            color: #ff3333;
+            color: #ffe066;
             font-size: 14px;
             letter-spacing: -2px;
-            text-shadow: 0 0 8px rgba(231, 76, 60, 0.8);
+            text-shadow: 0 0 8px rgba(245,197,24,0.8);
             animation: arrowPulse 1.2s ease-in-out infinite alternate;
         }
         @keyframes arrowPulse {
             0%   { opacity: 0.5; transform: translateX(0); }
             100% { opacity: 1; transform: translateX(4px); }
         }
-        footer { text-align: center; margin-top: 60px; padding-top: 25px; border-top: 1px solid #251515; font-size: 13px; color: #777777; text-transform: uppercase; }
+        footer { text-align: center; margin-top: 60px; padding-top: 25px; border-top: 1px solid #3a2f0a; font-size: 13px; color: #777777; text-transform: uppercase; }
 
         /* Mini cyber button (inline nella lista) */
         .btn-cyber-vai-mini {
@@ -684,7 +684,7 @@
             gap: 5px;
             padding: 5px 12px;
             background: rgba(15,5,5,0.9);
-            border: 1px solid rgba(231,76,60,0.45);
+            border: 1px solid rgba(245,197,24,0.45);
             border-radius: 2px;
             cursor: pointer;
             position: relative;
@@ -693,9 +693,9 @@
             font-size: 13px;
             letter-spacing: 2px;
             text-transform: uppercase;
-            color: #e74c3c;
-            text-shadow: 0 0 6px rgba(231,76,60,0.7);
-            box-shadow: 0 0 8px rgba(231,76,60,0.15);
+            color: #f5c518;
+            text-shadow: 0 0 6px rgba(245,197,24,0.7);
+            box-shadow: 0 0 8px rgba(245,197,24,0.15);
             transition: all 0.2s ease;
             margin-left: 8px;
             vertical-align: middle;
@@ -705,14 +705,14 @@
             position: absolute;
             top: 0; left: -100%;
             width: 60%; height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(231,76,60,0.2), transparent);
+            background: linear-gradient(90deg, transparent, rgba(245,197,24,0.2), transparent);
             animation: btnSweep 2s ease-in-out infinite;
         }
         .btn-cyber-vai-mini:hover {
-            border-color: rgba(231, 76, 60, 0.6);
-            color: #ff3333;
-            text-shadow: 0 0 8px rgba(231,76,60,0.8);
-            box-shadow: 0 0 14px rgba(231,76,60,0.3);
+            border-color: rgba(245,197,24,0.6);
+            color: #ffe066;
+            text-shadow: 0 0 8px rgba(245,197,24,0.8);
+            box-shadow: 0 0 14px rgba(245,197,24,0.3);
             transform: translateY(-1px);
         }
 
@@ -722,9 +722,9 @@
             animation: logoGlow 3s ease-in-out infinite alternate;
         }
         @keyframes logoGlow {
-            0%   { filter: drop-shadow(0 0 8px rgba(231,76,60,0.4)) drop-shadow(0 0 20px rgba(231,76,60,0.2)); }
-            50%  { filter: drop-shadow(0 0 25px rgba(231,76,60,0.9)) drop-shadow(0 0 50px rgba(231,76,60,0.5)) drop-shadow(0 0 5px rgba(255,180,180,0.8)); }
-            100% { filter: drop-shadow(0 0 12px rgba(231,76,60,0.6)) drop-shadow(0 0 30px rgba(231,76,60,0.3)); }
+            0%   { filter: drop-shadow(0 0 8px rgba(245,197,24,0.4)) drop-shadow(0 0 20px rgba(245,197,24,0.2)); }
+            50%  { filter: drop-shadow(0 0 25px rgba(245,197,24,0.9)) drop-shadow(0 0 50px rgba(245,197,24,0.5)) drop-shadow(0 0 5px rgba(255,240,180,0.8)); }
+            100% { filter: drop-shadow(0 0 12px rgba(245,197,24,0.6)) drop-shadow(0 0 30px rgba(245,197,24,0.3)); }
         }
 
     
@@ -746,7 +746,7 @@
             inset: -2px;
             border-radius: 18px;
             padding: 2px;
-            background: linear-gradient(135deg, #e74c3c, #ff6b35, #e74c3c, #8b0000, #e74c3c);
+            background: linear-gradient(135deg, #f5c518, #d4a017, #f5c518, #6b4e00, #f5c518);
             background-size: 300% 300%;
             animation: borderRotate 4s linear infinite;
             -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
@@ -761,7 +761,7 @@
             position: absolute;
             top: -40px; left: -40px;
             width: 200px; height: 200px;
-            background: radial-gradient(circle, rgba(231,76,60,0.12) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(245,197,24,0.12) 0%, transparent 70%);
             animation: glowCorner 3s ease-in-out infinite alternate;
             z-index: 0;
             pointer-events: none;
@@ -788,7 +788,7 @@
             letter-spacing: 3px;
             font-family: 'Segoe UI', sans-serif;
             font-weight: 900;
-            border-bottom: 1px solid rgba(231,76,60,0.3);
+            border-bottom: 1px solid rgba(245,197,24,0.3);
             padding-bottom: 12px;
             display: flex;
             align-items: center;
@@ -800,9 +800,9 @@
             display: inline-block;
             width: 4px;
             height: 18px;
-            background: linear-gradient(180deg, #e74c3c, #ff6b35);
+            background: linear-gradient(180deg, #f5c518, #d4a017);
             border-radius: 2px;
-            box-shadow: 0 0 8px rgba(231,76,60,0.8);
+            box-shadow: 0 0 8px rgba(245,197,24,0.8);
         }
 
         .griglia-form { position: relative; z-index: 1; }
@@ -812,7 +812,7 @@
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 2px;
-            color: #e74c3c;
+            color: #f5c518;
             margin-bottom: 6px;
             display: block;
             white-space: nowrap;
@@ -824,7 +824,7 @@
         .campo-form input,
         .campo-form select {
             background: rgba(5,2,2,0.9);
-            border: 1px solid rgba(231,76,60,0.35);
+            border: 1px solid rgba(245,197,24,0.35);
             border-radius: 8px;
             color: #ffffff;
             padding: 12px 15px;
@@ -839,11 +839,11 @@
 
         .campo-form input:focus,
         .campo-form select:focus {
-            border-color: #e74c3c;
+            border-color: #f5c518;
             box-shadow: 
                 inset 0 2px 8px rgba(0,0,0,0.5),
-                0 0 0 2px rgba(231,76,60,0.15),
-                0 0 20px rgba(231,76,60,0.2);
+                0 0 0 2px rgba(245,197,24,0.15),
+                0 0 20px rgba(245,197,24,0.2);
             background: rgba(10,3,3,0.95);
         }
 
@@ -870,7 +870,7 @@
             z-index: 10;
         }
 
-        /* Linea base verde neon */
+        /* Linea base bianca neon */
         .linea-fulmine::before {
             content: '';
             position: absolute;
@@ -879,17 +879,17 @@
             height: 4px;
             background: linear-gradient(90deg,
                 transparent 0%,
-                #1a8a4a 3%,
-                #2ecc71 15%,
-                #ff3333 50%,
-                #2ecc71 85%,
-                #1a8a4a 97%,
+                rgba(255,255,255,0.5) 3%,
+                #ffffff 15%,
+                #f5c518 50%,
+                #ffffff 85%,
+                rgba(255,255,255,0.5) 97%,
                 transparent 100%);
             box-shadow:
-                0 0 4px #2ecc71,
-                0 0 10px rgba(46,204,113,0.8),
-                0 0 25px rgba(46,204,113,0.5),
-                0 0 50px rgba(46,204,113,0.25);
+                0 0 4px #ffffff,
+                0 0 10px rgba(255,255,255,0.8),
+                0 0 25px rgba(255,255,255,0.5),
+                0 0 50px rgba(255,255,255,0.25);
             animation: neonBreath 2.5s ease-in-out infinite alternate;
         }
 
@@ -903,11 +903,11 @@
             height: 16px;
             background: linear-gradient(90deg,
                 transparent 0%,
-                rgba(46,204,113,0.3) 25%,
-                rgba(180,255,220,0.9) 48%,
+                rgba(255,255,255,0.3) 25%,
+                rgba(255,255,255,0.9) 48%,
                 white 50%,
-                rgba(180,255,220,0.9) 52%,
-                rgba(46,204,113,0.3) 75%,
+                rgba(255,255,255,0.9) 52%,
+                rgba(255,255,255,0.3) 75%,
                 transparent 100%);
             filter: blur(2px);
             animation: lightSweep 2.5s ease-in-out infinite;
@@ -915,11 +915,11 @@
 
         @keyframes neonBreath {
             0% {
-                box-shadow: 0 0 4px #2ecc71, 0 0 10px rgba(46,204,113,0.6), 0 0 20px rgba(46,204,113,0.3);
+                box-shadow: 0 0 4px #ffffff, 0 0 10px rgba(255,255,255,0.6), 0 0 20px rgba(255,255,255,0.3);
                 opacity: 0.9;
             }
             100% {
-                box-shadow: 0 0 6px #2ecc71, 0 0 18px rgba(46,204,113,1), 0 0 40px rgba(46,204,113,0.6), 0 0 80px rgba(46,204,113,0.3);
+                box-shadow: 0 0 6px #ffffff, 0 0 18px rgba(255,255,255,1), 0 0 40px rgba(255,255,255,0.6), 0 0 80px rgba(255,255,255,0.3);
                 opacity: 1;
             }
         }
@@ -1002,9 +1002,128 @@
             transform: translateY(2px);
             box-shadow: 0 1px 0 #145a32, 0 0 10px rgba(46,204,113,0.4);
         }
+
+        /* ===== ENTRATA SITO / INTRO SPLASH ===== */
+        #introSplash {
+            position: fixed;
+            inset: 0;
+            z-index: 999999;
+            background: #050505;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            transition: opacity 0.6s ease, visibility 0.6s ease;
+        }
+        #introSplash.intro-hide {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+        #introSplash .intro-testo {
+            font-family: 'Bebas Neue', 'Impact', sans-serif;
+            font-size: clamp(36px, 7vw, 72px);
+            text-align: center;
+            line-height: 1.1;
+            letter-spacing: 3px;
+            color: #f5c518;
+            text-shadow: 0 0 0 rgba(245,197,24,0);
+            opacity: 0;
+            transform: scale(0.85);
+            animation: introFade 4.2s ease forwards;
+        }
+        @keyframes introFade {
+            0%   { opacity: 0; transform: scale(0.85); text-shadow: 0 0 0 rgba(245,197,24,0); }
+            12%  { opacity: 1; transform: scale(1); text-shadow: 0 0 0 rgba(245,197,24,0); }
+            22%  { opacity: 1; transform: scale(1); }
+            /* pulsa una volta */
+            32%  { transform: scale(1.1); }
+            42%  { transform: scale(1); }
+            /* si ferma */
+            52%  { transform: scale(1); }
+            /* si illumina di poco */
+            62%  { text-shadow: 0 0 18px rgba(245,197,24,0.7), 0 0 34px rgba(245,197,24,0.4); }
+            /* svanisce lentamente senza ingrandirsi */
+            100% { opacity: 0; transform: scale(1); text-shadow: 0 0 30px rgba(245,197,24,0.5), 0 0 60px rgba(245,197,24,0.2); }
+        }
+        #introSplash .intro-skip {
+            position: absolute;
+            bottom: 28px;
+            right: 28px;
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #777777;
+            border: 1px solid #3a2f0a;
+            padding: 8px 14px;
+            border-radius: 6px;
+            cursor: pointer;
+            background: rgba(20,20,20,0.5);
+        }
+        #introSplash .intro-skip:hover { color: #f5c518; border-color: #f5c518; }
+
+        /* ===== TASTO SERVE AIUTO ===== */
+        .btn-serve-aiuto {
+            display: inline-block;
+            background: none;
+            border: none;
+            color: #38bdf8;
+            text-decoration: underline;
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 14px;
+            letter-spacing: 1px;
+            cursor: pointer;
+            padding: 4px 2px;
+        }
+        .btn-serve-aiuto:hover { color: #7cd4fb; }
+        #overlayAiuto {
+            position: fixed;
+            inset: 0;
+            z-index: 9998;
+            background: rgba(0,0,0,0.75);
+            display: none;
+            align-items: center;
+            justify-content: center;
+        }
+        #overlayAiuto.aiuto-visibile { display: flex; }
+        .box-aiuto {
+            background: #0c0c0c;
+            border: 2px solid #3a2f0a;
+            border-radius: 12px;
+            padding: 28px;
+            max-width: 420px;
+            width: 90%;
+            box-shadow: 0 0 30px rgba(245,197,24,0.25);
+        }
+        .box-aiuto h3 { color: #f5c518; margin-top: 0; text-transform: uppercase; }
+        .box-aiuto p { color: #cccccc; font-size: 14px; line-height: 1.6; }
+        .box-aiuto button {
+            margin-top: 10px;
+            background: linear-gradient(135deg, #f5c518, #d4a017);
+            border: none;
+            color: #111;
+            font-weight: 700;
+            padding: 10px 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            text-transform: uppercase;
+        }
     </style>
 </head>
 <body>
+
+<div id="introSplash">
+    <div class="intro-testo">RIDE OUT<br>CUSTOM'S</div>
+    <div class="intro-skip" onclick="chiudiIntro()">Salta &#9654;&#9654;</div>
+</div>
+
+<div id="overlayAiuto">
+    <div class="box-aiuto">
+        <h3>&#x2753; Serve Aiuto?</h3>
+        <p>Se hai dubbi sulla compilazione, sui prezzi o riscontri un errore nel gestionale, contatta lo staff sul Discord del server nel canale supporto, indicando il tuo nome IC e una descrizione del problema.</p>
+        <button onclick="chiudiAiuto()">Ho Capito</button>
+    </div>
+</div>
 
 <div class="laser-line"></div>
 <div class="container">
@@ -1155,7 +1274,7 @@
                         <div>
                             <span class="intervento-nome" style="display: block;">Full Kit Meccanica &#x1F4E6;&#x1F451;</span>
                             <span style="font-size: 12px; color: #aaaaaa; display: block;">(Meccanica al massimo livello + Riparazione + Pulizia)</span>
-                            <span style="font-size: 12px; color: #e74c3c; font-weight: bold; display: block; margin-top: 3px;">&#x26A0;&#xFE0F; INFORMAZIONE: L'attivazione applicherà il prezzo e bloccherà le singole voci sotto.</span>
+                            <span style="font-size: 12px; color: #f5c518; font-weight: bold; display: block; margin-top: 3px;">&#x26A0;&#xFE0F; INFORMAZIONE: L'attivazione applicherà il prezzo e bloccherà le singole voci sotto.</span>
                         </div>
                     </div>
                     <span class="intervento-prezzo">25.000$</span>
@@ -1166,7 +1285,7 @@
                         <div>
                             <span class="intervento-nome" style="display: block;">Full Kit Meccanica x Dipendenti &#129489;&#8205;&#128295;</span>
                             <span style="font-size: 12px; color: #aaaaaa; display: block;">(Meccanica al massimo livello + Riparazione + Pulizia)</span>
-                            <span style="font-size: 12px; color: #e74c3c; font-weight: bold; display: block; margin-top: 3px;">&#x26A0;&#xFE0F; INFORMAZIONE: L'attivazione applicherà il prezzo e bloccherà le singole voci sotto.</span>
+                            <span style="font-size: 12px; color: #f5c518; font-weight: bold; display: block; margin-top: 3px;">&#x26A0;&#xFE0F; INFORMAZIONE: L'attivazione applicherà il prezzo e bloccherà le singole voci sotto.</span>
                         </div>
                     </div>
                     <span class="intervento-prezzo">20.000$</span>
@@ -1179,12 +1298,13 @@
                             <span style="font-size: 12px; color: #aaaaaa; display: block; margin-top: 2px;">(In base al numero di modifiche installate nella sezione estetica)</span>
                         </div>
                     </div>
-                    <span class="intervento-prezzo" style="color:#e74c3c;">Prezzo Variabile</span>
+                    <span class="intervento-prezzo" style="color:#f5c518;">Prezzo Variabile</span>
                 </li>
             </ul>
             <div class="subtotale-box" id="subFullKit">Subtotale Full Kit Meccanica: 0$</div>
         </div>
         
+        <div>
            <div class="categoria-titolo">&#128667; [4] Assistenza Stradale</div>
             <ul class="lista-interventi">
                 <li>
@@ -1232,8 +1352,7 @@
             <div class="categoria-titolo">&#x1F680; [5] Elaborazione Prestazioni (Motore &amp; Turbo)</div>
             <ul class="lista-interventi">
                 <li><div class="intervento-info"><input type="checkbox" class="lista-checkbox cb-meccanico" data-prezzo="2000" data-nome="Modifica Turbo" onchange="gestioneCheck(this)"><span>Modifica Turbo &#x1F3CE;&#xFE0F;&#x1F4A8;</span></div><span class="intervento-prezzo">2.000$</span></li>
-<li>
-                                                                                 ============================== Ride Out Custom's ===============================
+                <li style="text-align: center; justify-content: center; color: #ffffff; letter-spacing: 1px;">============================== Ride Out Custom's ===============================</li>
                 <li><div class="intervento-info"><input type="checkbox" class="lista-checkbox cb-meccanico" data-prezzo="2000" data-nome="Upgrade Motore Lvl 1" onchange="gestioneCheck(this)"><span>Upgrade Motore LV 1 &#x1F680;</span></div><span class="intervento-prezzo">2.000$</span></li>
                 <li><div class="intervento-info"><input type="checkbox" class="lista-checkbox cb-meccanico" data-prezzo="2500" data-nome="Upgrade Motore Lvl 2" onchange="gestioneCheck(this)"><span>Upgrade Motore LV 2 &#x1F680;&#x1F525;</span></div><span class="intervento-prezzo">2.500$</span></li>
                 <li><div class="intervento-info"><input type="checkbox" class="lista-checkbox cb-meccanico" data-prezzo="4500" data-nome="Upgrade Motore Lvl 3" onchange="gestioneCheck(this)"><span>Upgrade Motore LV 3 &#x1F680;&#x26A1;</span></div><span class="intervento-prezzo">4.500$</span></li>
@@ -1251,8 +1370,8 @@
             <div class="subtotale-box" id="subFreni">Subtotale Freni: 0$</div>
 
             <div class="categoria-titolo">&#x2699;&#xFE0F; [7] Trasmissioni</div>
-            <ul class="lista-interventi"<li>
-                <li><div class="intervento-info"><input type="checkbox" class="lista-checkbox cb-meccanico" data-prezzo="2000" data-nome="Upgrade Trasmissione Lvl 1" onchange="gestioneCheck(this)"><span>Upgrade Trasmissione LV 1 &#x2699;&#xFE0F;</span></div><span class="intervento-prezzo">2.000$</span>
+            <ul class="lista-interventi">
+                <li><div class="intervento-info"><input type="checkbox" class="lista-checkbox cb-meccanico" data-prezzo="2000" data-nome="Upgrade Trasmissione Lvl 1" onchange="gestioneCheck(this)"><span>Upgrade Trasmissione LV 1 &#x2699;&#xFE0F;</span></div><span class="intervento-prezzo">2.000$</span></li>
                 <li><div class="intervento-info"><input type="checkbox" class="lista-checkbox cb-meccanico" data-prezzo="2500" data-nome="Upgrade Trasmissione Lvl 2" onchange="gestioneCheck(this)"><span>Upgrade Trasmissione LV 2 &#x2699;&#xFE0F;&#x1F525;</span></div><span class="intervento-prezzo">2.500$</span></li>
                 <li><div class="intervento-info"><input type="checkbox" class="lista-checkbox cb-meccanico" data-prezzo="3000" data-nome="Upgrade Trasmissione Lvl 3" onchange="gestioneCheck(this)"><span>Upgrade Trasmissione LV 3 &#x2699;&#xFE0F;&#x26A1;</span></div><span class="intervento-prezzo">3.000$</span></li>
                 <li><div class="intervento-info"><input type="checkbox" class="lista-checkbox cb-meccanico" data-prezzo="3500" data-nome="Upgrade Trasmissione Lvl 4" onchange="gestioneCheck(this)"><span>Upgrade Trasmissione LV 4 &#x2699;&#xFE0F;&#x1F451;</span></div><span class="intervento-prezzo">3.500$</span></li>
@@ -1281,12 +1400,13 @@
 
     </div>
 
-<footer>
-    <p style="color: #FF8000; font-weight: bold; font-size: 14px;">⭐ — DEV BY HYPE/𝕽𝖔𝖒𝖆 — ⭐</p>
-    <p>Listino Automatico Unificato &bull; 2026</p>
-</footer>
+    <footer>
+        <p style="color: #f5c518 font-weight: bold; font-size: 14px;">⭐
+— DEV BY HYPE/𝕽𝖔𝖒𝖆 —
+⭐</p>
+        <p>Listino Automatico Unificato &bull; 2026</p>
+    </footer>
 
-</div>
 </div>
 
 <div class="barra-totale-preventivo">
@@ -1306,13 +1426,34 @@
                 <span class="valore-cifra-bar v-azienda" id="lblQuotaAzienda">0$</span>
             </div>
         </div>
-        <div class="gruppo-pulsanti">
+        <div style="display:flex; flex-direction:column; align-items:center; gap:6px; flex-shrink:0;">
+            <div class="gruppo-pulsanti">
 <button class="btn-discord btn-generico-lavoro" onclick="inviaLavoroUnificato()">🚀 Registra Lavoro</button>
+            </div>
+            <button type="button" class="btn-serve-aiuto" onclick="apriAiuto()">Serve aiuto?</button>
         </div>
     </div>
 </div>
 
 <script>
+    // ===== ENTRATA SITO (INTRO SPLASH) =====
+    function chiudiIntro() {
+        const intro = document.getElementById('introSplash');
+        if (intro) intro.classList.add('intro-hide');
+    }
+    setTimeout(chiudiIntro, 4300); // si chiude da sola dopo pulsazione + dissolvenza lenta
+
+    // ===== SERVE AIUTO =====
+    function apriAiuto() {
+        document.getElementById('overlayAiuto').classList.add('aiuto-visibile');
+    }
+    function chiudiAiuto() {
+        document.getElementById('overlayAiuto').classList.remove('aiuto-visibile');
+    }
+    document.getElementById('overlayAiuto').addEventListener('click', function(e) {
+        if (e.target === this) chiudiAiuto();
+    });
+
     document.addEventListener('contextmenu', event => event.preventDefault());
     document.addEventListener('keydown', function(e) {
         if (e.keyCode == 123 ||
@@ -1404,7 +1545,7 @@
         let qtaEstetica = parseInt(document.getElementById('quantitaEstetica').value) || 0;
         if (qtaEstetica < 0) qtaEstetica = 0;
         document.getElementById('quantitaEstetica').value = qtaEstetica;
-        subEstetica += (qtaEstetica * 1000);
+        subEstetica += (qtaEstetica * (parseInt(document.getElementById('quantitaEstetica').dataset.prezzoUnitario) || 2000));
         document.getElementById('subEstetica').innerText = "Subtotale Estetica: " + subEstetica.toLocaleString() + "$";
         let subFullKit = 0;
         if (chkFullKit25 && chkFullKit25.checked) subFullKit += parseInt(chkFullKit25.dataset.prezzo) || 0;
